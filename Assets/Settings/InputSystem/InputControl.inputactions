@@ -3,7 +3,7 @@
     "name": "InputControl",
     "maps": [
         {
-            "name": "Player",
+            "name": "GamePlay",
             "id": "3e71b3ea-28a2-4eae-9501-5a3590a5a12e",
             "actions": [
                 {
@@ -28,7 +28,16 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "c715ba1e-62a6-4534-bab1-d269d5b4647a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "ab951765-fe9d-4c6a-b1e9-7db3e258afb9",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -252,6 +261,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf4e0396-932a-4ac4-bff2-fd1336cf40d6",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse;Gamepad",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
