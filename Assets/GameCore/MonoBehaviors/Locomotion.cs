@@ -15,7 +15,8 @@ namespace GameCore.MonoBehaviors
 
         private void Start()
         {
-            _IgnoreLayerMask = ~(1 << LayerMask.NameToLayer("Player"));
+            _IgnoreLayerMask =  ~(1 << LayerMask.NameToLayer("Player"));
+            _IgnoreLayerMask &= ~(1 << LayerMask.NameToLayer("Ignore Raycast"));
         }
 
         private void Update()

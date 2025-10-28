@@ -42,7 +42,6 @@ namespace GameCore.Actor
 
         #endregion PrivateMethods
 
-
         #region Capabilities
 
         public Locomotion         Locomotion;

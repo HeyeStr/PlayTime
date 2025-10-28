@@ -17,7 +17,8 @@ namespace GameCore.MonoBehaviors
 
         private void Start()
         {
-            _IgnoreLayerMask = ~(1 << LayerMask.NameToLayer("Player"));
+            _IgnoreLayerMask =  ~(1 << LayerMask.NameToLayer("Player"));
+            _IgnoreLayerMask &= ~(1 << LayerMask.NameToLayer("Ignore Raycast"));
         }
 
         private void Update()
@@ -86,6 +87,7 @@ namespace GameCore.MonoBehaviors
         {
             // TODO : 切换模型等工作
             ActorBrain.ModelManager.SwitchModel();
+            ActorBrain.ActorController.Move(_HitPos - ActorBrain.transform.position);
         }
 
         private bool _FloorDetect()
@@ -96,9 +98,10 @@ namespace GameCore.MonoBehaviors
 
             if (!hasHitFloor) return false;
 
-            Debug.DrawRay(transform.position, Vector3.down, Color.red, 2f);
 
             var actorFeetPos = hitFloor.point;
+
+            Debug.DrawLine(transform.position, actorFeetPos, Color.red, 2f);
             Debug.DrawRay(actorFeetPos + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.red, 2f);
             Debug.DrawRay(actorFeetPos + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.red, 2f);
             Debug.DrawRay(actorFeetPos + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.red, 2f);
@@ -119,6 +122,7 @@ namespace GameCore.MonoBehaviors
                 // 表明被物体挡住了，说明 hitPos 处有影子
                 if (actorFeetPos != hitFloor.point)
                 {
+                    _HitPos = actorFeetPos;
                     return true;
                 }
             }
@@ -135,10 +139,9 @@ namespace GameCore.MonoBehaviors
             if (!hasHitForward) return false;
             var temp = hitWall.collider.gameObject.layer & _IgnoreLayerMask;
 
-            Debug.DrawRay(transform.position, transform.forward, Color.yellow, 2f);
 
             var actorForwardPos = hitWall.point;
-
+            Debug.DrawLine(transform.position, actorForwardPos, Color.yellow, 2f);
             Debug.DrawRay(actorForwardPos + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.yellow, 2f);
             Debug.DrawRay(actorForwardPos + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.yellow, 2f);
             Debug.DrawRay(actorForwardPos + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.yellow, 2f);
@@ -159,6 +162,7 @@ namespace GameCore.MonoBehaviors
                 // 表明被物体挡住了，说明 hitPos 处有影子
                 if (actorForwardPos != hitWall.point)
                 {
+                    _HitPos = actorForwardPos;
                     return true;
                 }
             }
@@ -174,6 +178,7 @@ namespace GameCore.MonoBehaviors
         public  float     MaxDetectDistance = 2f;
         public  float     ExitSpeed         = 10f;
         public  bool      IsInShadow        = false;
+        private Vector3   _HitPos;
         private LayerMask _IgnoreLayerMask;
 
         #endregion Field
