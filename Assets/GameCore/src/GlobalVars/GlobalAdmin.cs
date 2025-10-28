@@ -3,6 +3,7 @@
 */
 
 using System.Collections.Generic;
+using GameCore.MonoBehaviors;
 using GameCore.Systems;
 using UnityEngine;
 
@@ -26,6 +27,10 @@ namespace GameCore.GlobalVars
             }
         }
 
+        #endregion Singleton
+
+        #region UnityBehaviour
+
         private void OnEnable()
         {
             G.GPlayerController.OnEnable();
@@ -36,8 +41,6 @@ namespace GameCore.GlobalVars
             G.GPlayerController.OnDisable();
         }
 
-        #endregion Singleton
-
         private void Update()
         {
             G.GPlayerController.Update();
@@ -47,9 +50,17 @@ namespace GameCore.GlobalVars
             }
         }
 
+        #endregion UnityBehaviour
+
+
+        #region PublicMethods
+
+        #endregion PublicMethods
+
         #region Field
 
-        private List<SystemBase> _Systems = new List<SystemBase>();
+        private List<SystemBase>  _Systems     = new List<SystemBase>();
+        public  List<ShadowLight> ShadowLights = new List<ShadowLight>();
 
         #endregion Field
     }

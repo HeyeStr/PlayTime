@@ -31,10 +31,7 @@ namespace GameCore.GlobalVars
 
         public void Update()
         {
-            if (!(_MoveAmount > 0)) return;
-
-            _MoveCommand.Reset(new Vector3(HorizontalInput, 0, VerticalInput), _MoveAmount);
-            CommandStream.Enqueue(_MoveCommand);
+            _CreateMoveCommand();
         }
 
         public void OnEnable()
@@ -81,6 +78,21 @@ namespace GameCore.GlobalVars
             _MoveAmount    = 0;
 
             _CheckInputDeviceChange(context);
+        }
+
+        private void _CreateMoveCommand()
+        {
+            if (!(_MoveAmount > 0)) return;
+            _GetMoveDirection();
+            _MoveCommand.Reset(_MoveDirection, _MoveAmount);
+            CommandStream.Enqueue(_MoveCommand);
+        }
+
+        private void _GetMoveDirection()
+        {
+            _MoveDirection   =  Forward * VerticalInput;
+            _MoveDirection   += Right   * HorizontalInput;
+            _MoveDirection.y =  0;
         }
 
         #endregion HandleMoveAndRoation
@@ -149,8 +161,10 @@ namespace GameCore.GlobalVars
         private InputDevice CurrentControllerDevice { get; set; }
 
         // Move Input
-        private float VerticalInput   => _MovementInput.y;
-        private float HorizontalInput => _MovementInput.x;
+        private static Vector3 Forward         => G.Camera.transform.forward;
+        private static Vector3 Right           => G.Camera.transform.right;
+        private        float   VerticalInput   => _MovementInput.y;
+        private        float   HorizontalInput => _MovementInput.x;
 
         // CameraMove Input
         public float CameraVerticalInput   => _CameraInput.y;
@@ -163,6 +177,7 @@ namespace GameCore.GlobalVars
         public readonly InputControl       InputController;
         public          Queue<CommandBase> CommandStream = new Queue<CommandBase>();
 
+        private          Vector3     _MoveDirection;
         private          float       _MoveAmount;
         private          Vector2     _MovementInput;
         private readonly MoveCommand _MoveCommand = new MoveCommand();

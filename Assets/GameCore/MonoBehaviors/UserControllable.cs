@@ -22,11 +22,8 @@ namespace GameCore.MonoBehaviors
 
         private void Update()
         {
-            while (G.GPlayerController.CommandStream.Count > 0)
-            {
-                var command = G.GPlayerController.CommandStream.Dequeue();
-                command.Execute(ActorBrain);
-            }
+            if (!ActorBrain || G.GPlayerController.CommandStream.Count == 0) return;
+            ActorBrain.CommandQueue.Enqueue(G.GPlayerController.CommandStream.Dequeue());
         }
 
         #endregion UnityBehavior
