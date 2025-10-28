@@ -6,16 +6,13 @@ using System.Collections.Generic;
 using GameCore.Commands;
 using GameCore.MonoBehaviors;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GameCore.Actor
 {
     public class Brain : MonoBehaviour
     {
         #region UnityBehaviour
-
-        private void Awake()
-        {
-        }
 
         private void Update()
         {
@@ -33,9 +30,14 @@ namespace GameCore.Actor
         {
             while (CommandQueue.Count > 0)
             {
-                var command = CommandQueue.Dequeue();
-                command.Execute(this);
+                ExecuteCommand();
             }
+        }
+
+        public void ExecuteCommand()
+        {
+            var command = CommandQueue.Dequeue();
+            command.Execute(this);
         }
 
         #endregion PrivateMethods
@@ -43,8 +45,10 @@ namespace GameCore.Actor
 
         #region Capabilities
 
-        public Locomotion      Locomotion;
-        public AnimatorManager AnimatorManager;
+        public Locomotion         Locomotion;
+        public InteractWithShadow InteractWithShadow;
+        public AnimatorManager    AnimatorManager;
+        public ModelManager       ModelManager;
 
         #endregion Capabilities
 

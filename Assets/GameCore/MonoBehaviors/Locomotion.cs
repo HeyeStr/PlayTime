@@ -2,6 +2,7 @@
   2025年10月24日
 */
 
+using System;
 using GameCore.Actor;
 using GameCore.GlobalVars;
 using UnityEngine;
@@ -12,12 +13,9 @@ namespace GameCore.MonoBehaviors
     {
         #region UnityBehavior
 
-        private void Awake()
+        private void Start()
         {
-            if (ActorBrain == null)
-            {
-                ActorBrain = GetComponent<Brain>();
-            }
+            _IgnoreLayerMask = ~(1 << LayerMask.NameToLayer("Player"));
         }
 
         private void Update()
@@ -34,11 +32,18 @@ namespace GameCore.MonoBehaviors
 
         public void Move(Vector3 moveDirection, float moveAmount)
         {
-            MoveDirection = moveDirection;
-            MoveDirection.Normalize();
+            _MoveDirection = moveDirection;
+            _MoveDirection.Normalize();
 
-            ActorBrain.ActorController.Move(MoveDirection * (MoveSpeed * DeltaTime));
+            ActorBrain.ActorController.Move(_MoveDirection * (MoveSpeed * DeltaTime));
             ActorBrain.AnimatorManager?.UpdateAnimatorMovementParameters(0, moveAmount);
+        }
+
+        public void Jump(float ySpeed)
+        {
+            _YVelocity.y = ySpeed;
+            // TODO 跳跃动画
+            // ActorBrain.AnimatorManager?.UpdateAnimatorMovementParameters(0, moveAmount);
         }
 
         public void Rotation(Vector3 rotationDirection)
@@ -60,16 +65,15 @@ namespace GameCore.MonoBehaviors
 
         private void _MockGravity()
         {
-            _IsGrounded = Physics.CheckSphere(transform.position, GroundCHeckSphereRadius, GroundLayer);
-            if (_IsGrounded)
-            {
-                _YVelocity.y = 0;
-                return;
-            }
-
             _YVelocity.y += GravityForce * Time.deltaTime;
 
             ActorBrain.ActorController.Move(_YVelocity * DeltaTime);
+
+            _IsGrounded = Physics.CheckSphere(transform.position, GroundCHeckSphereRadius, _IgnoreLayerMask);
+            if (_IsGrounded)
+            {
+                _YVelocity.y = 0;
+            }
         }
 
         #region Field
@@ -81,8 +85,8 @@ namespace GameCore.MonoBehaviors
         public float GravityForce            = -10;
         public float GroundCHeckSphereRadius = 0.1f;
 
-        public                   LayerMask GroundLayer;
-        [SerializeField] private Vector3   MoveDirection;
+        private LayerMask _IgnoreLayerMask;
+        private Vector3   _MoveDirection;
 
         private static float DeltaTime =>
             G.UseUnscaledDeltaTime ? Time.unscaledDeltaTime : Time.deltaTime;

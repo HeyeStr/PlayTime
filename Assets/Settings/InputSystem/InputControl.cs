@@ -97,7 +97,7 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""1afe27f9-36ba-40ca-99fc-888ab81b5a49"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -353,7 +353,7 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bf4e0396-932a-4ac4-bff2-fd1336cf40d6"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse;Gamepad"",

@@ -111,8 +111,7 @@ namespace GameCore.GlobalVars
 
         private void _OnInteractPerformed(InputAction.CallbackContext context)
         {
-            // if (PlayerBrain == null) return;
-            // PlayerBrain.AttemptToPerformInteract();
+            CommandStream.Enqueue(new EntryShadowCommand());
             _CheckInputDeviceChange(context);
         }
 
