@@ -6,7 +6,7 @@ using GameCore.Actor;
 
 namespace GameCore.Commands
 {
-    public class EntryShadowCommand : CommandBase
+    public class InteractWithShadowCommand : CommandBase
     {
         public override void Execute(Brain executor)
         {

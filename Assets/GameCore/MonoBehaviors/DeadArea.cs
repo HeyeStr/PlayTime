@@ -2,6 +2,7 @@
   2025年10月28日
 */
 
+using GameCore.Actor;
 using UnityEngine;
 
 namespace GameCore.MonoBehaviors
@@ -20,7 +21,15 @@ namespace GameCore.MonoBehaviors
 
         private void OnTriggerEnter(Collider other)
         {
-            BindArea.Reborn(other.gameObject);
+            var actorBrain = other.transform.root.GetComponent<Brain>();
+            if (actorBrain == null) return;
+
+            if (HarmlessForShadowPlayer && actorBrain.ModelManager.IsInShadow)
+            {
+                return;
+            }
+
+            BindArea.Reborn(actorBrain);
         }
 
         #endregion UnityBehaviour
@@ -29,6 +38,7 @@ namespace GameCore.MonoBehaviors
 
         public Collider   AreaCollider;
         public RebornArea BindArea;
+        public bool       HarmlessForShadowPlayer = true;
 
         #endregion Fields
     }

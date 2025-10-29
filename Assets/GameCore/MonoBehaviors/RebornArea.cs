@@ -12,11 +12,8 @@ namespace GameCore.MonoBehaviors
     {
         #region PublicMethods
 
-        public void Reborn(GameObject rebornGameObject)
+        public void Reborn(Brain actorBrain)
         {
-            var actorBrain = rebornGameObject.transform.root.GetComponent<Brain>();
-            if (actorBrain == null) return;
-
             actorBrain.CommandQueue.Enqueue(new TeleProtCommand(transform.position));
         }
 
