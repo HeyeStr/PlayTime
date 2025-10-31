@@ -44,6 +44,7 @@ namespace GameCore.Actor
         #region Capabilities
 
         public Locomotion         Locomotion;
+        public Inventory          Inventory;
         public InteractWithShadow InteractWithShadow;
         public AnimatorManager    AnimatorManager;
         public PlayerManager      PlayerManager;

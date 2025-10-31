@@ -56,11 +56,11 @@ namespace GameCore.GlobalVars
 
         #endregion PublicMethods
 
-        #region Field
+        #region Fields
 
-        private List<SystemBase>  _Systems     = new List<SystemBase>();
         public  List<ShadowLight> ShadowLights = new List<ShadowLight>();
+        private List<SystemBase>  _Systems     = new List<SystemBase>();
 
-        #endregion Field
+        #endregion Fields
     }
 }

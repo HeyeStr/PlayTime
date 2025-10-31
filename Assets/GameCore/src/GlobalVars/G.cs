@@ -10,6 +10,7 @@ namespace GameCore.GlobalVars
     {
         public static PlayerController GPlayerController => PlayerController.Instance;
         public static MainCamera       Camera            => MainCamera.Instance;
+        public static LevelManager     GLevelManager     => LevelManager.Instance;
         public static UIManager        GUIManager        => UIManager.Instance;
         public static GlobalAdmin      Admin             => GlobalAdmin.Instance;
 

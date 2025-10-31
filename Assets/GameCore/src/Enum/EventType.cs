@@ -8,6 +8,8 @@ namespace GameCore.Enum
     {
         GameStart,
         GameOver,
+        LevelPass,
+        LevelRestart,
 
         DayNightSwitch,
 
