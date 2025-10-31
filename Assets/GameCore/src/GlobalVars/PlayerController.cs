@@ -2,10 +2,9 @@
   2025年10月23日
 */
 
-using System.Collections.Generic;
-using GameCore.Commands;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using EventType = GameCore.Enum.EventType;
 
 namespace GameCore.GlobalVars
 {
@@ -24,34 +23,39 @@ namespace GameCore.GlobalVars
 
         private PlayerController()
         {
-            InputController = new InputControl();
+            _InputController = new InputControl();
         }
 
         #region UnityBehavior
 
-        public void Update()
-        {
-            _CreateMoveCommand();
-        }
-
         public void OnEnable()
         {
-            InputController.Enable();
-            InputController.GamePlay.Move.performed     += _OnMovePerformed;
-            InputController.GamePlay.Move.canceled      += _OnMoveCanceled;
-            InputController.GamePlay.Look.performed     += _OnLookPerformed;
-            InputController.GamePlay.Interact.performed += _OnInteractPerformed;
-            InputController.UI.Cancel.performed         += _OnCancelPerformed;
+            _InputController.Enable();
+            _InputController.GamePlay.Move.performed           += _OnMovePerformed;
+            _InputController.GamePlay.Move.canceled            += _OnMoveCanceled;
+            _InputController.GamePlay.Look.performed           += _OnLookPerformed;
+            _InputController.GamePlay.TimeForward.started      += _OnTimeForwardStarted;
+            _InputController.GamePlay.TimeForward.canceled     += _OnTimeForwardCanceled;
+            _InputController.GamePlay.TimeBackward.started     += _OnTimeBackwardStarted;
+            _InputController.GamePlay.TimeBackward.canceled    += _OnTimeBackwardCanceled;
+            _InputController.GamePlay.Interact.performed       += _OnInteractPerformed;
+            _InputController.GamePlay.DayNightSwitch.performed += _OnDayNightSwitch;
+            _InputController.UI.Cancel.performed               += _OnCancelPerformed;
         }
 
         public void OnDisable()
         {
-            InputController.GamePlay.Move.performed     -= _OnMovePerformed;
-            InputController.GamePlay.Move.canceled      -= _OnMoveCanceled;
-            InputController.GamePlay.Look.performed     -= _OnLookPerformed;
-            InputController.GamePlay.Interact.performed -= _OnInteractPerformed;
-            InputController.UI.Cancel.performed         -= _OnCancelPerformed;
-            InputController.Disable();
+            _InputController.GamePlay.Move.performed           -= _OnMovePerformed;
+            _InputController.GamePlay.Move.canceled            -= _OnMoveCanceled;
+            _InputController.GamePlay.Look.performed           -= _OnLookPerformed;
+            _InputController.GamePlay.TimeForward.started      -= _OnTimeForwardStarted;
+            _InputController.GamePlay.TimeForward.canceled     -= _OnTimeForwardCanceled;
+            _InputController.GamePlay.TimeBackward.started     -= _OnTimeBackwardStarted;
+            _InputController.GamePlay.TimeBackward.canceled    -= _OnTimeBackwardCanceled;
+            _InputController.GamePlay.Interact.performed       -= _OnInteractPerformed;
+            _InputController.GamePlay.DayNightSwitch.performed -= _OnDayNightSwitch;
+            _InputController.UI.Cancel.performed               -= _OnCancelPerformed;
+            _InputController.Disable();
         }
 
         #endregion UnityBehavior
@@ -61,12 +65,12 @@ namespace GameCore.GlobalVars
         private void _OnMovePerformed(InputAction.CallbackContext context)
         {
             _MovementInput = context.ReadValue<Vector2>();
-            _MoveAmount    = Mathf.Clamp01(Mathf.Abs(VerticalInput) + Mathf.Abs(HorizontalInput));
-            _MoveAmount = _MoveAmount switch
+            MoveAmount     = Mathf.Clamp01(Mathf.Abs(VerticalInput) + Mathf.Abs(HorizontalInput));
+            MoveAmount = MoveAmount switch
             {
                 > 0 and <= 0.5f => 0.5f,
                 > 0.5f and < 1  => 1f,
-                _               => _MoveAmount
+                _               => MoveAmount
             };
 
             _CheckInputDeviceChange(context);
@@ -75,24 +79,9 @@ namespace GameCore.GlobalVars
         private void _OnMoveCanceled(InputAction.CallbackContext context)
         {
             _MovementInput = Vector2.zero;
-            _MoveAmount    = 0;
+            MoveAmount     = 0;
 
             _CheckInputDeviceChange(context);
-        }
-
-        private void _CreateMoveCommand()
-        {
-            if (!(_MoveAmount > 0)) return;
-            _GetMoveDirection();
-            _MoveCommand.Reset(_MoveDirection, _MoveAmount);
-            CommandStream.Enqueue(_MoveCommand);
-        }
-
-        private void _GetMoveDirection()
-        {
-            _MoveDirection   =  Forward * VerticalInput;
-            _MoveDirection   += Right   * HorizontalInput;
-            _MoveDirection.y =  0;
         }
 
         #endregion HandleMoveAndRoation
@@ -111,7 +100,37 @@ namespace GameCore.GlobalVars
 
         private void _OnInteractPerformed(InputAction.CallbackContext context)
         {
-            CommandStream.Enqueue(new EntryShadowCommand());
+            G.GameEventManager.TriggerEvent(EventType.Interact);
+            _CheckInputDeviceChange(context);
+        }
+
+        private void _OnDayNightSwitch(InputAction.CallbackContext context)
+        {
+            G.GameEventManager.TriggerEvent(EventType.DayNightSwitch);
+            _CheckInputDeviceChange(context);
+        }
+
+        private void _OnTimeForwardStarted(InputAction.CallbackContext context)
+        {
+            IsTimeForwardPerformed = true;
+            _CheckInputDeviceChange(context);
+        }
+
+        private void _OnTimeForwardCanceled(InputAction.CallbackContext context)
+        {
+            IsTimeForwardPerformed = false;
+            _CheckInputDeviceChange(context);
+        }
+
+        private void _OnTimeBackwardStarted(InputAction.CallbackContext context)
+        {
+            IsTimeBackwardPerformed = true;
+            _CheckInputDeviceChange(context);
+        }
+
+        private void _OnTimeBackwardCanceled(InputAction.CallbackContext context)
+        {
+            IsTimeBackwardPerformed = false;
             _CheckInputDeviceChange(context);
         }
 
@@ -159,11 +178,8 @@ namespace GameCore.GlobalVars
 
         private InputDevice CurrentControllerDevice { get; set; }
 
-        // Move Input
-        private static Vector3 Forward         => G.Camera.transform.forward;
-        private static Vector3 Right           => G.Camera.transform.right;
-        private        float   VerticalInput   => _MovementInput.y;
-        private        float   HorizontalInput => _MovementInput.x;
+        public float VerticalInput   => _MovementInput.y;
+        public float HorizontalInput => _MovementInput.x;
 
         // CameraMove Input
         public float CameraVerticalInput   => _CameraInput.y;
@@ -171,17 +187,16 @@ namespace GameCore.GlobalVars
 
         #endregion Property
 
-        #region Field
+        #region Fields
 
-        public readonly InputControl       InputController;
-        public          Queue<CommandBase> CommandStream = new Queue<CommandBase>();
+        private readonly InputControl _InputController;
+        public           float        MoveAmount;
+        public           bool         IsTimeForwardPerformed  = false;
+        public           bool         IsTimeBackwardPerformed = false;
 
-        private          Vector3     _MoveDirection;
-        private          float       _MoveAmount;
-        private          Vector2     _MovementInput;
-        private readonly MoveCommand _MoveCommand = new MoveCommand();
-        private          Vector2     _CameraInput;
+        private Vector2 _MovementInput;
+        private Vector2 _CameraInput;
 
-        #endregion Field
+        #endregion Fields
     }
 }

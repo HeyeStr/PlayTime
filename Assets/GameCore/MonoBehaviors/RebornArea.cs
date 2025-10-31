@@ -14,7 +14,7 @@ namespace GameCore.MonoBehaviors
 
         public void Reborn(Brain actorBrain)
         {
-            actorBrain.CommandQueue.Enqueue(new TeleProtCommand(transform.position));
+            actorBrain.CommandStream.Enqueue(new TeleProtCommand(transform.position));
         }
 
         #endregion PublicMethods

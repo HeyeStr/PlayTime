@@ -111,9 +111,18 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""TimeForward"",
                     ""type"": ""Button"",
                     ""id"": ""c715ba1e-62a6-4534-bab1-d269d5b4647a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimeBackward"",
+                    ""type"": ""Button"",
+                    ""id"": ""61db6cd4-69a0-4615-bed5-bee2437447d0"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -123,6 +132,15 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""ab951765-fe9d-4c6a-b1e9-7db3e258afb9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DayNightSwitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""27111392-f23e-48ba-aed1-ee35a8dff3dc"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -302,7 +320,7 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
+                    ""action"": ""TimeForward"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -313,40 +331,29 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
+                    ""action"": ""TimeForward"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""id"": ""b3441b01-98c1-4364-80d7-20291fcbdaca"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""TimeBackward"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
-                    ""path"": ""<Joystick>/trigger"",
+                    ""id"": ""68873983-976b-45d7-852e-2a98948b9094"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Fire"",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""TimeBackward"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -358,6 +365,17 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse;Gamepad"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""845d0501-3834-420e-ae8f-2e476cea600c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad"",
+                    ""action"": ""DayNightSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -947,8 +965,10 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         m_GamePlay = asset.FindActionMap("GamePlay", throwIfNotFound: true);
         m_GamePlay_Move = m_GamePlay.FindAction("Move", throwIfNotFound: true);
         m_GamePlay_Look = m_GamePlay.FindAction("Look", throwIfNotFound: true);
-        m_GamePlay_Fire = m_GamePlay.FindAction("Fire", throwIfNotFound: true);
+        m_GamePlay_TimeForward = m_GamePlay.FindAction("TimeForward", throwIfNotFound: true);
+        m_GamePlay_TimeBackward = m_GamePlay.FindAction("TimeBackward", throwIfNotFound: true);
         m_GamePlay_Interact = m_GamePlay.FindAction("Interact", throwIfNotFound: true);
+        m_GamePlay_DayNightSwitch = m_GamePlay.FindAction("DayNightSwitch", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1044,8 +1064,10 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
     private List<IGamePlayActions> m_GamePlayActionsCallbackInterfaces = new List<IGamePlayActions>();
     private readonly InputAction m_GamePlay_Move;
     private readonly InputAction m_GamePlay_Look;
-    private readonly InputAction m_GamePlay_Fire;
+    private readonly InputAction m_GamePlay_TimeForward;
+    private readonly InputAction m_GamePlay_TimeBackward;
     private readonly InputAction m_GamePlay_Interact;
+    private readonly InputAction m_GamePlay_DayNightSwitch;
     /// <summary>
     /// Provides access to input actions defined in input action map "GamePlay".
     /// </summary>
@@ -1066,13 +1088,21 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Look => m_Wrapper.m_GamePlay_Look;
         /// <summary>
-        /// Provides access to the underlying input action "GamePlay/Fire".
+        /// Provides access to the underlying input action "GamePlay/TimeForward".
         /// </summary>
-        public InputAction @Fire => m_Wrapper.m_GamePlay_Fire;
+        public InputAction @TimeForward => m_Wrapper.m_GamePlay_TimeForward;
+        /// <summary>
+        /// Provides access to the underlying input action "GamePlay/TimeBackward".
+        /// </summary>
+        public InputAction @TimeBackward => m_Wrapper.m_GamePlay_TimeBackward;
         /// <summary>
         /// Provides access to the underlying input action "GamePlay/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_GamePlay_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "GamePlay/DayNightSwitch".
+        /// </summary>
+        public InputAction @DayNightSwitch => m_Wrapper.m_GamePlay_DayNightSwitch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1105,12 +1135,18 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
-            @Fire.started += instance.OnFire;
-            @Fire.performed += instance.OnFire;
-            @Fire.canceled += instance.OnFire;
+            @TimeForward.started += instance.OnTimeForward;
+            @TimeForward.performed += instance.OnTimeForward;
+            @TimeForward.canceled += instance.OnTimeForward;
+            @TimeBackward.started += instance.OnTimeBackward;
+            @TimeBackward.performed += instance.OnTimeBackward;
+            @TimeBackward.canceled += instance.OnTimeBackward;
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @DayNightSwitch.started += instance.OnDayNightSwitch;
+            @DayNightSwitch.performed += instance.OnDayNightSwitch;
+            @DayNightSwitch.canceled += instance.OnDayNightSwitch;
         }
 
         /// <summary>
@@ -1128,12 +1164,18 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
-            @Fire.started -= instance.OnFire;
-            @Fire.performed -= instance.OnFire;
-            @Fire.canceled -= instance.OnFire;
+            @TimeForward.started -= instance.OnTimeForward;
+            @TimeForward.performed -= instance.OnTimeForward;
+            @TimeForward.canceled -= instance.OnTimeForward;
+            @TimeBackward.started -= instance.OnTimeBackward;
+            @TimeBackward.performed -= instance.OnTimeBackward;
+            @TimeBackward.canceled -= instance.OnTimeBackward;
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @DayNightSwitch.started -= instance.OnDayNightSwitch;
+            @DayNightSwitch.performed -= instance.OnDayNightSwitch;
+            @DayNightSwitch.canceled -= instance.OnDayNightSwitch;
         }
 
         /// <summary>
@@ -1449,12 +1491,19 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLook(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Fire" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "TimeForward" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnFire(InputAction.CallbackContext context);
+        void OnTimeForward(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimeBackward" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimeBackward(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1462,6 +1511,13 @@ public partial class @InputControl: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DayNightSwitch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDayNightSwitch(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

@@ -2,7 +2,6 @@
   2025年10月24日
 */
 
-using System;
 using GameCore.Actor;
 using GameCore.GlobalVars;
 using UnityEngine;
@@ -13,44 +12,35 @@ namespace GameCore.MonoBehaviors
     {
         #region UnityBehavior
 
-        private void Start()
+        private void FixedUpdate()
         {
-            _IgnoreLayerMask =  ~(1 << LayerMask.NameToLayer("Player"));
-            _IgnoreLayerMask &= ~(1 << LayerMask.NameToLayer("Ignore Raycast"));
-        }
+            if (Velocity.magnitude > 0.1f)
+            {
+                _HandleMove();
+                _HandleRotation();
+            }
 
-        private void Update()
-        {
-            _MockGravity();
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.DrawSphere(transform.position, GroundCHeckSphereRadius);
+            if (ShouldMockGravity)
+            {
+                _MockGravity();
+            }
         }
 
         #endregion UnityBehavior
 
-        public void Move(Vector3 moveDirection, float moveAmount)
-        {
-            _MoveDirection = moveDirection;
-            _MoveDirection.Normalize();
+        #region PrivateMethods
 
-            ActorBrain.ActorController.Move(_MoveDirection * (MoveSpeed * DeltaTime));
-            ActorBrain.AnimatorManager?.UpdateAnimatorMovementParameters(0, moveAmount);
+        private void _HandleMove()
+        {
+            ActorBrain.ActorController.Move(Velocity * (MoveSpeed * DeltaTime));
+            ActorBrain.AnimatorManager?.UpdateAnimatorMovementParameters(0, _MoveAmount);
         }
 
-        public void Jump(float ySpeed)
+        private void _HandleRotation()
         {
-            _YVelocity.y = ySpeed;
-            // TODO 跳跃动画
-            // ActorBrain.AnimatorManager?.UpdateAnimatorMovementParameters(0, moveAmount);
-        }
+            var rotationDirection = Velocity;
 
-        public void Rotation(Vector3 rotationDirection)
-        {
-            rotationDirection.Normalize();
-
+            rotationDirection.y = 0;
             if (rotationDirection == Vector3.zero)
             {
                 rotationDirection = transform.forward;
@@ -66,35 +56,32 @@ namespace GameCore.MonoBehaviors
 
         private void _MockGravity()
         {
-            _YVelocity.y += GravityForce * Time.deltaTime;
+            Velocity.y += GravityForce * Time.deltaTime;
 
-            ActorBrain.ActorController.Move(_YVelocity * DeltaTime);
-
-            _IsGrounded = Physics.CheckSphere(transform.position, GroundCHeckSphereRadius, _IgnoreLayerMask);
-            if (_IsGrounded)
+            if (IsGrounded)
             {
-                _YVelocity.y = 0;
+                Velocity.y = 0;
             }
         }
 
-        #region Field
+        #endregion PrivateMethods
 
-        public Brain ActorBrain;
+        #region Fields
 
-        public float MoveSpeed               = 4;
-        public float RotationSpeed           = 15;
-        public float GravityForce            = -10;
-        public float GroundCHeckSphereRadius = 0.1f;
+        public Brain   ActorBrain;
+        public Vector3 Velocity;
+        public float   MoveSpeed         = 4;
+        public float   RotationSpeed     = 15;
+        public float   GravityForce      = -10;
+        public bool    ShouldMockGravity = true;
 
-        private LayerMask _IgnoreLayerMask;
-        private Vector3   _MoveDirection;
+        private float _MoveAmount;
 
         private static float DeltaTime =>
             G.UseUnscaledDeltaTime ? Time.unscaledDeltaTime : Time.deltaTime;
 
-        private Vector3 _YVelocity;
-        private bool    _IsGrounded;
+        private bool IsGrounded => ActorBrain.ActorController.isGrounded;
 
-        #endregion Field
+        #endregion Fields
     }
 }

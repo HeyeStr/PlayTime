@@ -3,12 +3,13 @@
 */
 
 using GameCore.Actor;
+using UnityEngine;
 
 namespace GameCore.Commands
 {
     public class JumpCommand : CommandBase
     {
-        public JumpCommand(float jumpSpeed)
+        public JumpCommand(int jumpSpeed)
         {
             _JumpSpeed = jumpSpeed;
         }
@@ -16,13 +17,13 @@ namespace GameCore.Commands
         public override void Execute(Brain executor)
         {
             if (!executor.Locomotion) return;
-            executor.Locomotion.Jump(_JumpSpeed);
+            executor.Locomotion.Velocity += _JumpSpeed * executor.transform.up;
         }
 
-        #region Field
+        #region Fields
 
-        private readonly float _JumpSpeed;
+        private readonly int _JumpSpeed;
 
-        #endregion Field
+        #endregion Fields
     }
 }

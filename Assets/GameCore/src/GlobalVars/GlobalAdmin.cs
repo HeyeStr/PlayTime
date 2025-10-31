@@ -43,7 +43,6 @@ namespace GameCore.GlobalVars
 
         private void Update()
         {
-            G.GPlayerController.Update();
             foreach (var system in _Systems)
             {
                 system.Update();

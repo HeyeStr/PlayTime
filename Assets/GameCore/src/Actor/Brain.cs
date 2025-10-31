@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using GameCore.Commands;
 using GameCore.MonoBehaviors;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace GameCore.Actor
 {
@@ -18,7 +17,7 @@ namespace GameCore.Actor
         {
             if (ShouldExecute)
             {
-                ExecuteCommands();
+                _ExecuteCommands();
             }
         }
 
@@ -26,9 +25,9 @@ namespace GameCore.Actor
 
         #region PrivateMethods
 
-        private void ExecuteCommands()
+        private void _ExecuteCommands()
         {
-            while (CommandQueue.Count > 0)
+            while (CommandStream.Count > 0)
             {
                 ExecuteCommand();
             }
@@ -36,7 +35,7 @@ namespace GameCore.Actor
 
         public void ExecuteCommand()
         {
-            var command = CommandQueue.Dequeue();
+            var command = CommandStream.Dequeue();
             command.Execute(this);
         }
 
@@ -47,17 +46,18 @@ namespace GameCore.Actor
         public Locomotion         Locomotion;
         public InteractWithShadow InteractWithShadow;
         public AnimatorManager    AnimatorManager;
-        public ModelManager       ModelManager;
+        public PlayerManager      PlayerManager;
 
         #endregion Capabilities
 
-        #region Field
+        #region Fields
 
-        public Queue<CommandBase>  CommandQueue  = new Queue<CommandBase>();
+        public Queue<CommandBase>  CommandStream = new Queue<CommandBase>();
         public bool                ShouldExecute = true;
         public Animator            ActorAnimator;
         public CharacterController ActorController;
+        public Rigidbody           Rigidbody;
 
-        #endregion Field
+        #endregion Fields
     }
 }

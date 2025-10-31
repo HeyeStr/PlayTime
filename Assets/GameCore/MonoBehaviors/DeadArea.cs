@@ -21,10 +21,10 @@ namespace GameCore.MonoBehaviors
 
         private void OnTriggerEnter(Collider other)
         {
-            var actorBrain = other.transform.root.GetComponent<Brain>();
+            var actorBrain = other.transform.root.GetComponentInChildren<Brain>();
             if (actorBrain == null) return;
 
-            if (HarmlessForShadowPlayer && actorBrain.ModelManager.IsInShadow)
+            if (HarmlessForShadowPlayer && actorBrain.PlayerManager.IsInShadow)
             {
                 return;
             }

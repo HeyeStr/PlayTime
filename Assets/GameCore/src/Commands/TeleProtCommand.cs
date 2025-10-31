@@ -18,9 +18,9 @@ namespace GameCore.Commands
         {
             if (executor.ActorController)
             {
-                executor.ActorController.enabled = false;
-                executor.transform.position      = _TeleProtPosition;
-                executor.ActorController.enabled = true;
+                executor.ActorController.enabled            = false;
+                executor.ActorController.transform.position = _TeleProtPosition;
+                executor.ActorController.enabled            = true;
             }
             else
             {

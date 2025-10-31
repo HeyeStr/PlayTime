@@ -26,15 +26,14 @@ namespace GameCore.MonoBehaviors
             // 进入影子模式后要时刻检测是否还处在影子里
             if (IsInShadow && !_FloorDetect())
             {
-                IsInShadow = false;
                 _TryToExitShadow();
             }
         }
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawRay(transform.position, Vector3.down * 10);
-            Gizmos.DrawLine(transform.position, transform.position + transform.forward * MaxDetectDistance);
+            Gizmos.DrawRay(transform.position, -transform.up     * FloorMaxDetectDistance);
+            Gizmos.DrawRay(transform.position, transform.forward * ForwardMaxDetectDistance);
         }
 
         #endregion UnityBehaviour
@@ -59,17 +58,25 @@ namespace GameCore.MonoBehaviors
 
         private void _TryToExitShadow()
         {
+            if (_CanExitShadow())
+            {
+                _ExitShadow();
+            }
+        }
+
+        private void _ExitShadow()
+        {
+            PlayerManager.SwitchToNormal();
             // TODO : 改成获得垂直于平面的速度
-            ActorBrain.CommandQueue.Enqueue(new JumpCommand(ExitSpeed));
-            ActorBrain.ModelManager.SwitchModel();
-            IsInShadow = false;
+            NormalBrain.CommandStream.Enqueue(new JumpCommand(ExitSpeed));
+            ActorController.height       = PlayerManager.NormalModelHeight;
+            ActorController.transform.up = Vector3.up;
         }
 
         private void _TryToEntryShadow()
         {
             if (_CanEntryShadow())
             {
-                IsInShadow = true;
                 _EntryShadow();
             }
             else
@@ -78,28 +85,35 @@ namespace GameCore.MonoBehaviors
             }
         }
 
+        private void _EntryShadow()
+        {
+            // TODO : 切换模型等工作
+            PlayerManager.SwitchToShadow();
+            ActorController.height       = PlayerManager.ShadowModelHeight;
+            ActorController.transform.up = _HitPos.normal;
+        }
+
         private bool _CanEntryShadow()
         {
             return _FloorDetect() || _WallDetect();
         }
 
-        private void _EntryShadow()
+        private bool _CanExitShadow()
         {
-            // TODO : 切换模型等工作
-            ActorBrain.ModelManager.SwitchModel();
-            ActorBrain.ActorController.Move(_HitPos - ActorBrain.transform.position);
+            // TODO : 离开影子模式的判断条件
+            return true;
         }
 
         private bool _FloorDetect()
         {
             var hasHitFloor = Physics.Raycast(transform.position, -transform.up, out var hitFloor,
-                float.PositiveInfinity,
+                FloorMaxDetectDistance,
                 _IgnoreLayerMask);
 
             if (!hasHitFloor) return false;
 
-
             var actorFeetPos = hitFloor.point;
+            _HitPos = hitFloor;
 
             Debug.DrawLine(transform.position, actorFeetPos, Color.red, 2f);
             Debug.DrawRay(actorFeetPos + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.red, 2f);
@@ -122,7 +136,6 @@ namespace GameCore.MonoBehaviors
                 // 表明被物体挡住了，说明 hitPos 处有影子
                 if (actorFeetPos != hitFloor.point)
                 {
-                    _HitPos = actorFeetPos;
                     return true;
                 }
             }
@@ -134,13 +147,13 @@ namespace GameCore.MonoBehaviors
         {
             var hasHitForward =
                 Physics.Raycast(transform.position, transform.forward, out var hitWall,
-                    MaxDetectDistance, _IgnoreLayerMask);
+                    ForwardMaxDetectDistance, _IgnoreLayerMask);
 
             if (!hasHitForward) return false;
-            var temp = hitWall.collider.gameObject.layer & _IgnoreLayerMask;
-
 
             var actorForwardPos = hitWall.point;
+            _HitPos = hitWall;
+
             Debug.DrawLine(transform.position, actorForwardPos, Color.yellow, 2f);
             Debug.DrawRay(actorForwardPos + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.yellow, 2f);
             Debug.DrawRay(actorForwardPos + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.yellow, 2f);
@@ -162,7 +175,6 @@ namespace GameCore.MonoBehaviors
                 // 表明被物体挡住了，说明 hitPos 处有影子
                 if (actorForwardPos != hitWall.point)
                 {
-                    _HitPos = actorForwardPos;
                     return true;
                 }
             }
@@ -174,12 +186,16 @@ namespace GameCore.MonoBehaviors
 
         #region Field
 
-        public  Brain     ActorBrain;
-        public  float     MaxDetectDistance = 2f;
-        public  float     ExitSpeed         = 10f;
-        public  bool      IsInShadow        = false;
-        private Vector3   _HitPos;
-        private LayerMask _IgnoreLayerMask;
+        public  PlayerManager       PlayerManager;
+        public  CharacterController ActorController;
+        public  float               ForwardMaxDetectDistance = 2f;
+        public  float               FloorMaxDetectDistance   = 2f;
+        public  int                 ExitSpeed                = 10;
+        private RaycastHit          _HitPos;
+        private LayerMask           _IgnoreLayerMask;
+        public  bool                IsInShadow  => PlayerManager.IsInShadow;
+        private Brain               NormalBrain => PlayerManager.NormalBrain;
+        private Brain               ShadowBrain => PlayerManager.ShadowBrain;
 
         #endregion Field
     }
