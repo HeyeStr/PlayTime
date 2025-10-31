@@ -2,6 +2,7 @@
   2025年10月31日
 */
 
+using System;
 using GameCore.Actor;
 using GameCore.GlobalVars;
 using UnityEngine;
@@ -26,6 +27,11 @@ namespace GameCore.MonoBehaviors
 
             actorBrain.Inventory.PickUp(_GameObject);
             _GameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            G.GameEventManager.RemoveEventListener(EventType.LevelRestart, _OnLevelRestart);
         }
 
         #endregion UnityBehaviour

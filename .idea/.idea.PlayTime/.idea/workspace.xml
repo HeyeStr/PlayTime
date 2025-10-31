@@ -5,79 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f16c1963-95da-42d3-96c6-b9f2240ba171" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Locomotion.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Locomotion.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/UserControllable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/UserControllable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Actor.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Actor/AnimatorManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Actor/AnimatorManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Actor/Brain.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Actor/Brain.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Commands.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Commands/CommandBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Commands/CommandBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Commands/MoveCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Commands/MoveCommand.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Enum.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Enum/EventType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Enum/EventType.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/G.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/G.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/GlobalAdmin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/GlobalAdmin.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/MainCamera.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/MainCamera.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/PlayerController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/PlayerController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/UIManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/UIManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Systems.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Systems/CommandSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Systems/CommandSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Systems/SystemBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Systems/SystemBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/UI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/UI/UIControllers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/UI/UIControllers/UIControllerBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/UI/UIControllers/UIControllerBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Utilities/EventManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Utilities/EventManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Utilities/Log.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Utilities/Log/ILogSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Utilities/Log/ILogSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Utilities/Log/SuperDubug.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Utilities/Log/UnityDebug.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GameCore/src/Utilities/Log/UnityDebug.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/InputControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/InputControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/InputControl.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/InputControl.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlayTime/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlayTime/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Collectable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Collectable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/NightLight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/NightLight.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/SunLightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/SunLightController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3789ee403a53437cbb6b5d9ab6311f51573620/de/a2ca3482/Void.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a742b6828205462a8ec3c7ae0f8f032e2da00/f2/8708b77b/EventType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/06/dc4e1f16/Gizmos.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/30/70f2778c/LayerMask.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/3e/675cdd3a/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/5b/1a3ae00b/Vector3.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/a4/ffcab543/Transform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/a5/ad3779b3/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/a9/9d497a87/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/d4/4c6267ff/Quaternion.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ca7b32b31189438bab0ba6f61815e95f1fe00/06/5eef9e43/PhysicsScene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ca7b32b31189438bab0ba6f61815e95f1fe00/5e/93c19cec/Physics.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ca7b32b31189438bab0ba6f61815e95f1fe00/6c/e810d6fa/CharacterController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ca7b32b31189438bab0ba6f61815e95f1fe00/c1/1d3f7215/RaycastHit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Collectable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/DeadArea.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/InteractWithShadow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Locomotion.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/UserControllable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/NightLight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/RebornArea.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/ShadowLight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/SunLightController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Actor/ActorManagerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Actor/AnimatorManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Actor/Brain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Actor/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Commands/CommandBase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Commands/MoveCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Commands/InteractWithShadowCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Commands/JumpCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Commands/TeleProtCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Enum/EventType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/G.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/GlobalAdmin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/MainCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -105,9 +84,11 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;ShowUsagesActions.previewPropertyKey&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -188,7 +169,13 @@
       <workItem from="1761126558546" duration="2415000" />
       <workItem from="1761138391960" duration="5311000" />
       <workItem from="1761223239583" duration="11818000" />
-      <workItem from="1761264757379" duration="11013000" />
+      <workItem from="1761264757379" duration="12038000" />
+      <workItem from="1761613231550" duration="25031000" />
+      <workItem from="1761652458450" duration="7514000" />
+      <workItem from="1761697242774" duration="27251000" />
+      <workItem from="1761829246972" duration="2573000" />
+      <workItem from="1761903308676" duration="15114000" />
+      <workItem from="1761921415019" duration="130000" />
     </task>
     <servers />
   </component>
@@ -220,6 +207,32 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/InteractWithShadow.cs</url>
+          <line>68</line>
+          <properties documentPath="F:\Unity\Projects\PlayTime\Assets\GameCore\MonoBehaviors\InteractWithShadow.cs" containingFunctionPresentation="Method '_ExitShadow'">
+            <startOffsets>
+              <option value="1541" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1572" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/SunLightController.cs</url>
+          <line>46</line>
+          <properties documentPath="F:\Unity\Projects\PlayTime\Assets\GameCore\MonoBehaviors\SunLightController.cs" containingFunctionPresentation="Method '_TimeForward'">
+            <startOffsets>
+              <option value="1119" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1149" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

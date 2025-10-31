@@ -2,6 +2,7 @@
   2025年10月31日
 */
 
+using System;
 using GameCore.GlobalVars;
 using UnityEngine;
 using EventType = GameCore.Enum.EventType;
@@ -17,6 +18,11 @@ namespace GameCore.MonoBehaviors
             _GameObject = gameObject;
             G.GameEventManager.AddEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
             _GameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            G.GameEventManager.RemoveEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
         }
 
         #endregion UnityBehaviour

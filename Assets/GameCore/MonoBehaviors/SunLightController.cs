@@ -31,6 +31,11 @@ namespace GameCore.MonoBehaviors
             }
         }
 
+        private void OnDestroy()
+        {
+            G.GameEventManager.RemoveEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
+        }
+
         #endregion UnityBehaviour
 
         #region PrivateMethods
