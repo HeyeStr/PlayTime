@@ -1233,13 +1233,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.4835879, y: 0, z: 0, w: 0.8752958}
   m_LocalPosition: {x: 0, y: 0, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1795563595}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 57.84, y: 0, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pivot: {fileID: 1795563595}
+  DaySkybox: {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
+  NightSkybox: {fileID: 2100000, guid: 135a7036ca1a07b4e9e162d80e6b6e77, type: 2}
   RotationSpeed: 30
   MinAngle: 30
   MaxAngle: 150
@@ -2627,8 +2629,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3828639113238821719, guid: 2c68cc94cd0656a4eb5e5cb4ebfce4f1,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.4554
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828639113238821719, guid: 2c68cc94cd0656a4eb5e5cb4ebfce4f1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.4554
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828639113238821719, guid: 2c68cc94cd0656a4eb5e5cb4ebfce4f1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.4554
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828639113238821719, guid: 2c68cc94cd0656a4eb5e5cb4ebfce4f1,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2977643
+      value: 3.08
       objectReference: {fileID: 0}
     - target: {fileID: 3828639113238821719, guid: 2c68cc94cd0656a4eb5e5cb4ebfce4f1,
         type: 3}
@@ -2638,7 +2655,7 @@ PrefabInstance:
     - target: {fileID: 3828639113238821719, guid: 2c68cc94cd0656a4eb5e5cb4ebfce4f1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.203312
+      value: 3.18
       objectReference: {fileID: 0}
     - target: {fileID: 3828639113238821719, guid: 2c68cc94cd0656a4eb5e5cb4ebfce4f1,
         type: 3}
