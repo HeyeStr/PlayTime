@@ -1169,7 +1169,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 90
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -2652,7 +2652,7 @@ MonoBehaviour:
   MoveSpeed: 9
   RotationSpeed: 15
   GravityForce: -10
-  ShouldMockGravity: 1
+  ShouldMockGravity: 0
 --- !u!4 &1862026989
 Transform:
   m_ObjectHideFlags: 0
@@ -3050,13 +3050,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054830873}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.68723226, z: -0, w: 0.72643787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 38.564476, y: 8.070365, z: 2.2303472}
-  m_LocalScale: {x: 1.44, y: 15.87, z: 4.16}
+  m_LocalScale: {x: 5.67, y: 15.87, z: 1.62}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1126568163}
-  m_LocalEulerAnglesHint: {x: 0, y: -86.823, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138173776
 GameObject:
   m_ObjectHideFlags: 0

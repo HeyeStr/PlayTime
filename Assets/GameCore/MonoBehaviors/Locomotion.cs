@@ -38,15 +38,17 @@ namespace GameCore.MonoBehaviors
 
         private void _HandleRotation()
         {
-            var rotationDirection = Velocity;
-
+            var rotationDirection = transform.InverseTransformDirection(Velocity);
             rotationDirection.y = 0;
+            rotationDirection   = transform.TransformDirection(rotationDirection);
+
             if (rotationDirection == Vector3.zero)
             {
                 rotationDirection = transform.forward;
             }
 
-            var newRotation = Quaternion.LookRotation(rotationDirection);
+            var actorTransform = ActorBrain.ActorController.transform;
+            var newRotation    = Quaternion.LookRotation(rotationDirection, actorTransform.up);
 
             ActorBrain.ActorController.transform.rotation = Quaternion.Slerp(
                 ActorBrain.ActorController.transform.rotation,
