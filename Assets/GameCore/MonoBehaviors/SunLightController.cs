@@ -68,6 +68,7 @@ namespace GameCore.MonoBehaviors
         private void _OnDayNightSwitch()
         {
             gameObject.SetActive(!gameObject.activeSelf);
+            RenderSettings.skybox = gameObject.activeSelf ? DaySkybox : NightSkybox;
         }
 
         #endregion PrivateMethods
@@ -75,6 +76,8 @@ namespace GameCore.MonoBehaviors
         #region Fields
 
         public Transform Pivot;
+        public Material  DaySkybox;
+        public Material  NightSkybox;
         public float     RotationSpeed = 30f;
         public float     MinAngle      = 0f;
         public float     MaxAngle      = 180f;

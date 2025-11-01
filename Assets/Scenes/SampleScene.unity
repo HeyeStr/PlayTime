@@ -839,6 +839,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pivot: {fileID: 1795563595}
+  DaySkybox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  NightSkybox: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   RotationSpeed: 30
   MinAngle: 30
   MaxAngle: 150
