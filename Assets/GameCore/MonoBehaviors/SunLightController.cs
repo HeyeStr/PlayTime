@@ -14,12 +14,15 @@ namespace GameCore.MonoBehaviors
 
         private void Start()
         {
-            _Transform = Pivot.transform;
+            _Transform      = Pivot.transform;
+            _CurrentAngle   = _Transform.eulerAngles;
+            _CurrentAngle.x = _Transform.eulerAngles.x > MinAngle ? _Transform.eulerAngles.x : MinAngle;
             G.GameEventManager.AddEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
         }
 
         private void Update()
         {
+            _RotationAmount = RotationSpeed * DeltaTime;
             if (G.GPlayerController.IsTimeForwardPerformed)
             {
                 _TimeForward();
@@ -42,33 +45,29 @@ namespace GameCore.MonoBehaviors
 
         private void _TimeForward()
         {
-            _RotationAmount =  RotationSpeed * DeltaTime;
-            _CurrentAngle   += _RotationAmount;
-            if (_CurrentAngle >= MaxAngle)
+            _CurrentAngle.x += _RotationAmount;
+            if (_CurrentAngle.x >= MaxAngle)
             {
-                _CurrentAngle = MaxAngle;
+                _CurrentAngle.x = MaxAngle;
             }
 
-            _Transform.rotation = Quaternion.Euler(_CurrentAngle, 0, 0);
+            _Transform.rotation = Quaternion.Euler(_CurrentAngle);
         }
 
         private void _TimeBackward()
         {
-            _RotationAmount =  RotationSpeed * DeltaTime;
-            _CurrentAngle   -= _RotationAmount;
-            if (_CurrentAngle < MinAngle)
+            _CurrentAngle.x -= _RotationAmount;
+            if (_CurrentAngle.x < MinAngle)
             {
-                _CurrentAngle = MinAngle;
+                _CurrentAngle.x = MinAngle;
             }
 
-            _Transform.rotation = Quaternion.Euler(_CurrentAngle, 0, 0);
+            _Transform.rotation = Quaternion.Euler(_CurrentAngle);
         }
 
         private void _OnDayNightSwitch()
         {
             gameObject.SetActive(!gameObject.activeSelf);
-            _CurrentAngle       = MinAngle;
-            _Transform.rotation = Quaternion.Euler(MinAngle, 0, 0);
         }
 
         #endregion PrivateMethods
@@ -81,7 +80,7 @@ namespace GameCore.MonoBehaviors
         public float     MaxAngle      = 180f;
 
         private Transform _Transform;
-        private float     _CurrentAngle;
+        private Vector3   _CurrentAngle;
         private float     _RotationAmount;
 
         private static float DeltaTime =>

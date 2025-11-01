@@ -840,8 +840,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pivot: {fileID: 1795563595}
   RotationSpeed: 30
-  MinAngle: 0
-  MaxAngle: 180
+  MinAngle: 30
+  MaxAngle: 150
 --- !u!4 &505358433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8802570680009444807, guid: dc12deaeb6106214c8777afd27970075,
@@ -2610,14 +2610,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795563594}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.46984634, y: -0.2961981, z: 0.17101005, w: 0.8137977}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 410087041}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: -40, z: 0}
 --- !u!1 &1862026987
 GameObject:
   m_ObjectHideFlags: 0
