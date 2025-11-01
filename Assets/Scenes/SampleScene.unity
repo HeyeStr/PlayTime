@@ -840,7 +840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pivot: {fileID: 1795563595}
   DaySkybox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  NightSkybox: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  NightSkybox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   RotationSpeed: 30
   MinAngle: 30
   MaxAngle: 150
@@ -1100,6 +1100,80 @@ Transform:
   - {fileID: 1502037789}
   m_Father: {fileID: 1886383329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &567908453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1126568163}
+    m_Modifications:
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 39.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927695978050835677, guid: a5148b80b60b5334aa71762bf4133364,
+        type: 3}
+      propertyPath: m_Name
+      value: NightLight (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5148b80b60b5334aa71762bf4133364, type: 3}
+--- !u!4 &567908454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 235002537308639798, guid: a5148b80b60b5334aa71762bf4133364,
+    type: 3}
+  m_PrefabInstance: {fileID: 567908453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &577008165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,6 +1764,7 @@ Transform:
   - {fileID: 338574889}
   - {fileID: 2054830877}
   - {fileID: 29368857}
+  - {fileID: 567908454}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1151362890

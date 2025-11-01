@@ -123,6 +123,7 @@ namespace GameCore.MonoBehaviors
 
             foreach (var shadowLight in G.Admin.ShadowLights)
             {
+                if (!shadowLight.enabled) continue;
                 var lightPos              = shadowLight.transform.position;
                 var lightToFloorDirection = actorFeetPos - lightPos;
                 var lightHasHitFloor = Physics.Raycast(lightPos, lightToFloorDirection, out hitFloor,
@@ -159,8 +160,10 @@ namespace GameCore.MonoBehaviors
             Debug.DrawRay(actorForwardPos + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.green, 2f);
             Debug.DrawRay(actorForwardPos + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.green, 2f);
             Debug.DrawRay(actorForwardPos + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.green, 2f);
+
             foreach (var shadowLight in G.Admin.ShadowLights)
             {
+                if (!shadowLight.enabled) continue;
                 var lightPos                = shadowLight.transform.position;
                 var lightToForwardDirection = actorForwardPos - lightPos;
 
