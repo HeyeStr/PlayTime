@@ -13,9 +13,18 @@ namespace GameCore.MonoBehaviors
 
         private void Start()
         {
+            _Light = GetComponent<Light>();
+            Range  = _Light.range;
             G.Admin.ShadowLights.Add(this);
         }
 
         #endregion UnityBehaviour
+
+        #region Fields
+
+        public  float Range { get; private set; }
+        private Light _Light;
+
+        #endregion Fields
     }
 }

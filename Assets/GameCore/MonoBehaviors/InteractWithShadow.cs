@@ -123,13 +123,14 @@ namespace GameCore.MonoBehaviors
 
             foreach (var shadowLight in G.Admin.ShadowLights)
             {
-                if (!shadowLight.enabled) continue;
+                if (!shadowLight.gameObject.activeSelf) continue;
                 var lightPos              = shadowLight.transform.position;
                 var lightToFloorDirection = actorFeetPos - lightPos;
                 var lightHasHitFloor = Physics.Raycast(lightPos, lightToFloorDirection, out hitFloor,
-                    float.PositiveInfinity,
-                    _IgnoreLayerMask);
+                    shadowLight.Range, _IgnoreLayerMask);
+
                 Debug.DrawRay(lightPos, lightToFloorDirection, Color.red, 2f);
+
                 if (!lightHasHitFloor) continue;
                 Debug.DrawRay(hitFloor.point + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.blue, 2f);
                 Debug.DrawRay(hitFloor.point + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.blue, 2f);
@@ -163,16 +164,17 @@ namespace GameCore.MonoBehaviors
 
             foreach (var shadowLight in G.Admin.ShadowLights)
             {
-                if (!shadowLight.enabled) continue;
+                if (!shadowLight.gameObject.activeSelf) continue;
                 var lightPos                = shadowLight.transform.position;
                 var lightToForwardDirection = actorForwardPos - lightPos;
 
                 var lightHasHitForward = Physics.Raycast(lightPos, lightToForwardDirection, out hitWall,
-                    float.PositiveInfinity,
-                    _IgnoreLayerMask);
+                    shadowLight.Range, _IgnoreLayerMask);
 
                 Debug.DrawRay(lightPos, lightToForwardDirection, Color.yellow, 2f);
+
                 if (!lightHasHitForward) continue;
+
                 Debug.DrawRay(hitWall.point + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.green, 2f);
                 Debug.DrawRay(hitWall.point + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.green, 2f);
                 Debug.DrawRay(hitWall.point + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.green, 2f);
