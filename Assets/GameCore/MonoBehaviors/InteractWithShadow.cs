@@ -8,6 +8,7 @@ using GameCore.GlobalVars;
 using GameCore.Utilities.Log;
 using UnityEngine;
 using UnityEngine.Serialization;
+using EventType = GameCore.Enum.EventType;
 
 namespace GameCore.MonoBehaviors
 {

@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828639113238821719}
+  - component: {fileID: 2075833329217712794}
   - component: {fileID: 2933037711830569324}
   - component: {fileID: 7749828237655436061}
   - component: {fileID: 5652329273460708373}
   - component: {fileID: 7959886681021438611}
-  - component: {fileID: 2075833329217712794}
   m_Layer: 0
   m_Name: MoveableItem
   m_TagString: Untagged
@@ -36,6 +36,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2075833329217712794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132007773858243836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1c6f6af104450ba16b05ebb4edb23f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlaneLimitHeight: 5
+  ItemRigidbody: {fileID: 7959886681021438611}
 --- !u!33 &2933037711830569324
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -134,16 +148,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &2075833329217712794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8132007773858243836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1c6f6af104450ba16b05ebb4edb23f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlaneLimitHeight: 2

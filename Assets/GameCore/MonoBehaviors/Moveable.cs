@@ -2,7 +2,10 @@
   2025年11月1日
 */
 
+using System;
+using GameCore.GlobalVars;
 using UnityEngine;
+using EventType = GameCore.Enum.EventType;
 
 namespace GameCore.MonoBehaviors
 {
@@ -21,14 +24,17 @@ namespace GameCore.MonoBehaviors
             {
                 transform.position = _StartPosition;
             }
+
+            ItemRigidbody.isKinematic = GlobalAdmin.Player.IsInShadow;
         }
 
         #endregion UnityBehaviour
 
         #region Fields
 
-        public  float   PlaneLimitHeight = 2f;
-        private Vector3 _StartPosition;
+        public  float     PlaneLimitHeight = 5f;
+        public  Rigidbody ItemRigidbody;
+        private Vector3   _StartPosition;
 
         #endregion Fields
     }

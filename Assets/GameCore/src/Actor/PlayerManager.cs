@@ -13,6 +13,16 @@ namespace GameCore.Actor
     {
         #region UnityBehaviour
 
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(Instance.gameObject);
+            }
+
+            Instance = this;
+        }
+
         private void Start()
         {
             _NormalModel    = NormalBrain.gameObject;
@@ -93,8 +103,9 @@ namespace GameCore.Actor
 
         #region Fields
 
-        public Brain NormalBrain;
-        public Brain ShadowBrain;
+        public static PlayerManager Instance;
+        public        Brain         NormalBrain;
+        public        Brain         ShadowBrain;
 
         private GameObject      _NormalModel;
         private GameObject      _ShadowModel;

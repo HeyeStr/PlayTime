@@ -3,6 +3,7 @@
 */
 
 using System.Collections.Generic;
+using GameCore.Actor;
 using GameCore.MonoBehaviors;
 using GameCore.Systems;
 using UnityEngine;
@@ -51,15 +52,14 @@ namespace GameCore.GlobalVars
 
         #endregion UnityBehaviour
 
-
-        #region PublicMethods
-
-        #endregion PublicMethods
-
         #region Fields
 
-        public  List<ShadowLight> ShadowLights = new List<ShadowLight>();
-        private List<SystemBase>  _Systems     = new List<SystemBase>();
+        public static PlayerManager Player        => PlayerManager.Instance;
+        public static LevelManager  GLevelManager => LevelManager.Instance;
+
+        public List<ShadowLight> ShadowLights = new List<ShadowLight>();
+
+        private List<SystemBase> _Systems = new List<SystemBase>();
 
         #endregion Fields
     }
