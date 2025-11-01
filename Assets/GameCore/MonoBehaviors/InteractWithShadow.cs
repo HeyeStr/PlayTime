@@ -134,14 +134,14 @@ namespace GameCore.MonoBehaviors
                 Debug.DrawRay(hitFloor.point + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.blue, 2f);
                 Debug.DrawRay(hitFloor.point + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.blue, 2f);
 
-                // 表明被物体挡住了，说明 hitPos 处有影子
-                if (actorFeetPos != hitFloor.point)
+                // 表明至少有一个光源照到了物体
+                if (actorFeetPos == hitFloor.point)
                 {
-                    return true;
+                    return false;
                 }
             }
 
-            return false;
+            return true;
         }
 
         private bool _WallDetect()
@@ -173,14 +173,15 @@ namespace GameCore.MonoBehaviors
                 Debug.DrawRay(hitWall.point + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.green, 2f);
                 Debug.DrawRay(hitWall.point + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.green, 2f);
                 Debug.DrawRay(hitWall.point + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.green, 2f);
-                // 表明被物体挡住了，说明 hitPos 处有影子
-                if (actorForwardPos != hitWall.point)
+
+                // 表明至少有一个光源照到了物体
+                if (actorForwardPos == hitWall.point)
                 {
-                    return true;
+                    return false;
                 }
             }
 
-            return false;
+            return true;
         }
 
         #endregion PrivateMethods

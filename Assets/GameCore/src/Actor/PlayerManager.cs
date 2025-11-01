@@ -29,8 +29,7 @@ namespace GameCore.Actor
             _ShadowModel    = ShadowBrain.gameObject;
             _NormalCollider = NormalBrain.GetComponent<CapsuleCollider>();
             _ShadowCollider = ShadowBrain.GetComponent<SphereCollider>();
-            _NormalModel.SetActive(true);
-            _ShadowModel.SetActive(false);
+            SwitchToNormal();
         }
 
         private void Update()
@@ -72,14 +71,24 @@ namespace GameCore.Actor
         {
             _GetMoveDirection();
             if (!CurrentBrain.Locomotion) return;
-            CurrentBrain.Locomotion.Velocity.x = _MoveDirection.x;
-            CurrentBrain.Locomotion.Velocity.z = _MoveDirection.z;
+            if (IsInShadow)
+            {
+                CurrentBrain.Locomotion.Velocity = _MoveDirection;
+            }
+            else
+            {
+                CurrentBrain.Locomotion.Velocity.x = _MoveDirection.x;
+                CurrentBrain.Locomotion.Velocity.z = _MoveDirection.z;
+            }
         }
 
         private void _GetMoveDirection()
         {
-            _MoveDirection =  PlayerController.VerticalInput   * Forward;
-            _MoveDirection += PlayerController.HorizontalInput * Right;
+            _MoveDirection   =  PlayerController.VerticalInput   * CameraForward;
+            _MoveDirection   += PlayerController.HorizontalInput * CameraRight;
+            _MoveDirection.y =  0;
+
+            _MoveDirection = Quaternion.FromToRotation(Vector3.up, transform.up) * _MoveDirection;
         }
 
         private void _OnInteract()
@@ -94,8 +103,8 @@ namespace GameCore.Actor
         public         bool             IsInShadow        => _ShadowModel.activeSelf;
         public         Brain            CurrentBrain      => IsInShadow ? ShadowBrain : NormalBrain;
         private static PlayerController PlayerController  => G.GPlayerController;
-        private static Vector3          Forward           => G.Camera.transform.forward;
-        private static Vector3          Right             => G.Camera.transform.right;
+        private static Vector3          CameraForward     => G.Camera.transform.forward;
+        private static Vector3          CameraRight       => G.Camera.transform.right;
         public         float            NormalModelHeight => _NormalCollider.height;
         public         float            ShadowModelHeight => _ShadowCollider.radius * 2;
 

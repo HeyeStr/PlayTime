@@ -839,9 +839,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pivot: {fileID: 1795563595}
+  DaySkybox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  NightSkybox: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   RotationSpeed: 30
-  MinAngle: 0
-  MaxAngle: 180
+  MinAngle: 30
+  MaxAngle: 150
 --- !u!4 &505358433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8802570680009444807, guid: dc12deaeb6106214c8777afd27970075,
@@ -1169,7 +1171,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 90
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -2610,14 +2612,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795563594}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.46984634, y: -0.2961981, z: 0.17101005, w: 0.8137977}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 410087041}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: -40, z: 0}
 --- !u!1 &1862026987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,7 +2654,7 @@ MonoBehaviour:
   MoveSpeed: 9
   RotationSpeed: 15
   GravityForce: -10
-  ShouldMockGravity: 1
+  ShouldMockGravity: 0
 --- !u!4 &1862026989
 Transform:
   m_ObjectHideFlags: 0
@@ -3050,13 +3052,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054830873}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.68723226, z: -0, w: 0.72643787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 38.564476, y: 8.070365, z: 2.2303472}
-  m_LocalScale: {x: 1.44, y: 15.87, z: 4.16}
+  m_LocalScale: {x: 5.67, y: 15.87, z: 1.62}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1126568163}
-  m_LocalEulerAnglesHint: {x: 0, y: -86.823, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138173776
 GameObject:
   m_ObjectHideFlags: 0
