@@ -4,6 +4,7 @@
 
 using System;
 using GameCore.GlobalVars;
+using GameCore.Utilities.Log;
 using UnityEngine;
 using EventType = GameCore.Enum.EventType;
 
@@ -20,6 +21,7 @@ namespace GameCore.MonoBehaviors
         public void PickUp(GameObject item)
         {
             // TODO: 拾取物品的逻辑
+            SuperDebug.Log("Picked up " + item.name);
         }
 
         #endregion PublicMethods

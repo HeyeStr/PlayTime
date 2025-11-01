@@ -116,9 +116,9 @@ namespace GameCore.MonoBehaviors
             _HitPos = hitFloor;
 
             Debug.DrawLine(transform.position, actorFeetPos, Color.red, 2f);
-            Debug.DrawRay(actorFeetPos + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.red, 2f);
-            Debug.DrawRay(actorFeetPos + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.red, 2f);
-            Debug.DrawRay(actorFeetPos + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.red, 2f);
+            Debug.DrawRay(actorFeetPos + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.blue, 2f);
+            Debug.DrawRay(actorFeetPos + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.blue, 2f);
+            Debug.DrawRay(actorFeetPos + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.blue, 2f);
 
             foreach (var shadowLight in G.Admin.ShadowLights)
             {
@@ -129,9 +129,9 @@ namespace GameCore.MonoBehaviors
                     _IgnoreLayerMask);
                 Debug.DrawRay(lightPos, lightToFloorDirection, Color.red, 2f);
                 if (!lightHasHitFloor) continue;
-                Debug.DrawRay(hitFloor.point + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.red, 2f);
-                Debug.DrawRay(hitFloor.point + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.red, 2f);
-                Debug.DrawRay(hitFloor.point + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.red, 2f);
+                Debug.DrawRay(hitFloor.point + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.blue, 2f);
+                Debug.DrawRay(hitFloor.point + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.blue, 2f);
+                Debug.DrawRay(hitFloor.point + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.blue, 2f);
 
                 // 表明被物体挡住了，说明 hitPos 处有影子
                 if (actorFeetPos != hitFloor.point)
@@ -155,9 +155,9 @@ namespace GameCore.MonoBehaviors
             _HitPos = hitWall;
 
             Debug.DrawLine(transform.position, actorForwardPos, Color.yellow, 2f);
-            Debug.DrawRay(actorForwardPos + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.yellow, 2f);
-            Debug.DrawRay(actorForwardPos + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.yellow, 2f);
-            Debug.DrawRay(actorForwardPos + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.yellow, 2f);
+            Debug.DrawRay(actorForwardPos + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.green, 2f);
+            Debug.DrawRay(actorForwardPos + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.green, 2f);
+            Debug.DrawRay(actorForwardPos + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.green, 2f);
             foreach (var shadowLight in G.Admin.ShadowLights)
             {
                 var lightPos                = shadowLight.transform.position;
@@ -169,9 +169,9 @@ namespace GameCore.MonoBehaviors
 
                 Debug.DrawRay(lightPos, lightToForwardDirection, Color.yellow, 2f);
                 if (!lightHasHitForward) continue;
-                Debug.DrawRay(hitWall.point + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.yellow, 2f);
-                Debug.DrawRay(hitWall.point + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.yellow, 2f);
-                Debug.DrawRay(hitWall.point + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.yellow, 2f);
+                Debug.DrawRay(hitWall.point + Vector3.up      * 0.1f, Vector3.down * 0.2f, Color.green, 2f);
+                Debug.DrawRay(hitWall.point + Vector3.right   * 0.1f, Vector3.left * 0.2f, Color.green, 2f);
+                Debug.DrawRay(hitWall.point + Vector3.forward * 0.1f, Vector3.back * 0.2f, Color.green, 2f);
                 // 表明被物体挡住了，说明 hitPos 处有影子
                 if (actorForwardPos != hitWall.point)
                 {
