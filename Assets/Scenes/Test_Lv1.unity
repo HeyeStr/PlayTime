@@ -474,8 +474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShadowLights: []
-  DaySkybox: {fileID: 0}
-  NightSkybox: {fileID: 0}
+  DaySkybox: {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
+  NightSkybox: {fileID: 2100000, guid: 135a7036ca1a07b4e9e162d80e6b6e77, type: 2}
 --- !u!1001 &166616727
 PrefabInstance:
   m_ObjectHideFlags: 0
