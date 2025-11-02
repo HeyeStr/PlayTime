@@ -313,6 +313,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShadowLights: []
+  DaySkybox: {fileID: 0}
+  NightSkybox: {fileID: 0}
 --- !u!1 &179052892
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,8 +844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pivot: {fileID: 1795563595}
-  DaySkybox: {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
-  NightSkybox: {fileID: 2100000, guid: 135a7036ca1a07b4e9e162d80e6b6e77, type: 2}
   RotationSpeed: 30
   MinAngle: 30
   MaxAngle: 150
@@ -2047,7 +2047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1005371988
 Transform:
   m_ObjectHideFlags: 0
@@ -2257,7 +2257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1101082226
 Transform:
   m_ObjectHideFlags: 0

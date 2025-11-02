@@ -533,6 +533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShadowLights: []
+  DaySkybox: {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
+  NightSkybox: {fileID: 2100000, guid: 135a7036ca1a07b4e9e162d80e6b6e77, type: 2}
 --- !u!1001 &166616727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -726,6 +728,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196478386}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &214044229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 214044230}
+  - component: {fileID: 214044231}
+  m_Layer: 2
+  m_Name: CrossPlane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &214044230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214044229}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 560243791}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &214044231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214044229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec913542180948428062908caac14c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DetectDistance: 1
 --- !u!4 &234492145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6622358659273093499, guid: 3c5709d8e7698ea44bcb3aeba6d57fb4,
@@ -908,7 +955,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3030797, y: 0, z: 0, w: 0.9529652}
-  m_LocalPosition: {x: 0, y: 15.6, z: -15.03}
+  m_LocalPosition: {x: -0.46, y: 15.6, z: -20.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1347,8 +1394,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pivot: {fileID: 1795563595}
-  DaySkybox: {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
-  NightSkybox: {fileID: 2100000, guid: 135a7036ca1a07b4e9e162d80e6b6e77, type: 2}
   RotationSpeed: 30
   MinAngle: 30
   MaxAngle: 150
@@ -2201,6 +2246,7 @@ Transform:
   m_Children:
   - {fileID: 1862026989}
   - {fileID: 1502037789}
+  - {fileID: 214044230}
   m_Father: {fileID: 1886383329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &577008165
@@ -2231,7 +2277,7 @@ Transform:
   m_GameObject: {fileID: 577008165}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9985558, z: -0, w: 0.053724818}
-  m_LocalPosition: {x: 0, y: 0.81, z: 5.87}
+  m_LocalPosition: {x: -0.46, y: 0.81, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6445,7 +6491,7 @@ Transform:
   m_GameObject: {fileID: 2138173776}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3030797, y: 0, z: 0, w: 0.9529652}
-  m_LocalPosition: {x: 0, y: 15.6, z: -15.03}
+  m_LocalPosition: {x: -0.46, y: 15.6, z: -20.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
