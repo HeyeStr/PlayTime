@@ -71,6 +71,12 @@ namespace GameCore.Actor
         {
             _GetMoveDirection();
             if (!CurrentBrain.Locomotion) return;
+
+            // // 保留法线分量
+            // var normalVelocity = Vector3.Dot(CurrentBrain.Locomotion.Velocity, transform.up) * transform.up;
+            // CurrentBrain.Locomotion.Velocity =  _MoveDirection;
+            // CurrentBrain.Locomotion.Velocity += normalVelocity;
+
             if (IsInShadow)
             {
                 CurrentBrain.Locomotion.Velocity = _MoveDirection;
