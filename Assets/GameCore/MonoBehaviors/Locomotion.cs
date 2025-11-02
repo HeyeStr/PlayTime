@@ -47,13 +47,10 @@ namespace GameCore.MonoBehaviors
                 rotationDirection = transform.forward;
             }
 
-            var actorTransform = ActorBrain.ActorController.transform;
-            var newRotation    = Quaternion.LookRotation(rotationDirection, actorTransform.up);
+            var newRotation = Quaternion.LookRotation(rotationDirection, PlayerTransform.up);
 
-            ActorBrain.ActorController.transform.rotation = Quaternion.Slerp(
-                ActorBrain.ActorController.transform.rotation,
-                newRotation,
-                RotationSpeed * DeltaTime);
+            PlayerTransform.rotation =
+                Quaternion.Slerp(PlayerTransform.rotation, newRotation, RotationSpeed * DeltaTime);
         }
 
         private void _MockGravity()
@@ -62,7 +59,7 @@ namespace GameCore.MonoBehaviors
 
             if (IsGrounded)
             {
-                Velocity.y = 0;
+                Velocity.y = GravityForce * Time.deltaTime;
             }
         }
 
@@ -78,11 +75,19 @@ namespace GameCore.MonoBehaviors
         public bool    ShouldMockGravity = true;
 
         private float _MoveAmount;
+        // private readonly float _GroundCheckOffset = 0.5f;
+
+        private Transform PlayerTransform => ActorBrain.ActorController.transform;
 
         private static float DeltaTime =>
             G.UseUnscaledDeltaTime ? Time.unscaledDeltaTime : Time.deltaTime;
 
         private bool IsGrounded => ActorBrain.ActorController.isGrounded;
+
+        // private bool IsGrounded => Physics.SphereCast(
+        //     PlayerTransform.position + _GroundCheckOffset * PlayerTransform.up, ActorBrain.ActorController.radius,
+        //     -PlayerTransform.up, out var hit,
+        //     _GroundCheckOffset - ActorBrain.ActorController.radius + 2 * ActorBrain.ActorController.skinWidth);
 
         #endregion Fields
     }

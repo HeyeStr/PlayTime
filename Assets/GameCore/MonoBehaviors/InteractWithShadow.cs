@@ -25,7 +25,7 @@ namespace GameCore.MonoBehaviors
         private void Update()
         {
             // 进入影子模式后要时刻检测是否还处在影子里
-            if (IsInShadow && !_FloorDetect())
+            if (PlayerManager.IsInShadow && !_FloorDetect())
             {
                 _TryToExitShadow();
             }
@@ -43,7 +43,7 @@ namespace GameCore.MonoBehaviors
 
         public void Interact()
         {
-            if (IsInShadow)
+            if (PlayerManager.IsInShadow)
             {
                 _TryToExitShadow();
             }
@@ -68,7 +68,6 @@ namespace GameCore.MonoBehaviors
         private void _ExitShadow()
         {
             PlayerManager.SwitchToNormal();
-            // TODO : 改成获得垂直于平面的速度
             NormalBrain.CommandStream.Enqueue(new JumpCommand(ExitSpeed));
             ActorController.height       = PlayerManager.NormalModelHeight;
             ActorController.transform.up = Vector3.up;
@@ -88,10 +87,10 @@ namespace GameCore.MonoBehaviors
 
         private void _EntryShadow()
         {
-            // TODO : 切换模型等工作
             PlayerManager.SwitchToShadow();
-            ActorController.height       = PlayerManager.ShadowModelHeight;
-            ActorController.transform.up = _HitPos.normal;
+            ActorController.height = PlayerManager.ShadowModelHeight;
+            var preForward = Vector3.Cross(_HitPos.normal, ActorController.transform.right);
+            ActorController.transform.rotation = Quaternion.LookRotation(preForward, _HitPos.normal);
         }
 
         private bool _CanEntryShadow()
@@ -200,7 +199,6 @@ namespace GameCore.MonoBehaviors
         public  int                 ExitSpeed                = 10;
         private RaycastHit          _HitPos;
         private LayerMask           _IgnoreLayerMask;
-        public  bool                IsInShadow  => PlayerManager.IsInShadow;
         private Brain               NormalBrain => PlayerManager.NormalBrain;
         private Brain               ShadowBrain => PlayerManager.ShadowBrain;
 

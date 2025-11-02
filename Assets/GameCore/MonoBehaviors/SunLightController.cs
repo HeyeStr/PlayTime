@@ -17,7 +17,6 @@ namespace GameCore.MonoBehaviors
             _Transform      = Pivot.transform;
             _CurrentAngle   = _Transform.eulerAngles;
             _CurrentAngle.x = _Transform.eulerAngles.x > MinAngle ? _Transform.eulerAngles.x : MinAngle;
-            G.GameEventManager.AddEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
         }
 
         private void Update()
@@ -32,11 +31,6 @@ namespace GameCore.MonoBehaviors
             {
                 _TimeBackward();
             }
-        }
-
-        private void OnDestroy()
-        {
-            G.GameEventManager.RemoveEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
         }
 
         #endregion UnityBehaviour
@@ -68,7 +62,6 @@ namespace GameCore.MonoBehaviors
         private void _OnDayNightSwitch()
         {
             gameObject.SetActive(!gameObject.activeSelf);
-            RenderSettings.skybox = gameObject.activeSelf ? DaySkybox : NightSkybox;
         }
 
         #endregion PrivateMethods
@@ -76,11 +69,10 @@ namespace GameCore.MonoBehaviors
         #region Fields
 
         public Transform Pivot;
-        public Material  DaySkybox;
-        public Material  NightSkybox;
-        public float     RotationSpeed = 30f;
-        public float     MinAngle      = 0f;
-        public float     MaxAngle      = 180f;
+
+        public float RotationSpeed = 30f;
+        public float MinAngle      = 0f;
+        public float MaxAngle      = 180f;
 
         private Transform _Transform;
         private Vector3   _CurrentAngle;

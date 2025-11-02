@@ -7,6 +7,7 @@ using GameCore.Actor;
 using GameCore.MonoBehaviors;
 using GameCore.Systems;
 using UnityEngine;
+using EventType = GameCore.Enum.EventType;
 
 namespace GameCore.GlobalVars
 {
@@ -35,22 +36,25 @@ namespace GameCore.GlobalVars
         private void OnEnable()
         {
             G.GPlayerController.OnEnable();
+            G.GameEventManager.AddEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
         }
 
         private void OnDisable()
         {
             G.GPlayerController.OnDisable();
-        }
-
-        private void Update()
-        {
-            foreach (var system in _Systems)
-            {
-                system.Update();
-            }
+            G.GameEventManager.RemoveEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
         }
 
         #endregion UnityBehaviour
+
+        #region PrivateMethods
+
+        private void _OnDayNightSwitch()
+        {
+            RenderSettings.skybox = RenderSettings.skybox == DaySkybox ? NightSkybox : DaySkybox;
+        }
+
+        #endregion PrivateMethods
 
         #region Fields
 
@@ -59,7 +63,8 @@ namespace GameCore.GlobalVars
 
         public List<ShadowLight> ShadowLights = new List<ShadowLight>();
 
-        private List<SystemBase> _Systems = new List<SystemBase>();
+        public Material DaySkybox;
+        public Material NightSkybox;
 
         #endregion Fields
     }

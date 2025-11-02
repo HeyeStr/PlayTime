@@ -17,7 +17,7 @@ namespace GameCore.Commands
         public override void Execute(Brain executor)
         {
             if (!executor.Locomotion) return;
-            executor.Locomotion.Velocity += _JumpSpeed * executor.transform.up;
+            executor.Locomotion.Velocity += _JumpSpeed * executor.ActorController.transform.up;
         }
 
         #region Fields
