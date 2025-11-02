@@ -17,6 +17,7 @@ namespace GameCore.MonoBehaviors
             _Transform      = Pivot.transform;
             _CurrentAngle   = _Transform.eulerAngles;
             _CurrentAngle.x = _Transform.eulerAngles.x > MinAngle ? _Transform.eulerAngles.x : MinAngle;
+            G.GameEventManager.AddEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
         }
 
         private void Update()
@@ -31,6 +32,11 @@ namespace GameCore.MonoBehaviors
             {
                 _TimeBackward();
             }
+        }
+
+        private void OnDestroy()
+        {
+            G.GameEventManager.RemoveEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
         }
 
         #endregion UnityBehaviour
