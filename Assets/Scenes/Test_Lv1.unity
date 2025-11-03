@@ -1945,7 +1945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &476637000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2797,7 +2797,7 @@ MonoBehaviour:
   ActorController: {fileID: 577008168}
   ForwardMaxDetectDistance: 2
   FloorMaxDetectDistance: 1.5
-  ExitSpeed: 3
+  ExitHeight: 10
 --- !u!1001 &609753097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4983,7 +4983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1232885269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6978,6 +6978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Locomotion: {fileID: 1397843825}
+  SurfaceJump: {fileID: 0}
   Inventory: {fileID: 1333267891}
   InteractWithShadow: {fileID: 577008169}
   AnimatorManager: {fileID: 0}
@@ -7674,6 +7675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Locomotion: {fileID: 1862026988}
+  SurfaceJump: {fileID: 0}
   Inventory: {fileID: 1502037790}
   InteractWithShadow: {fileID: 577008169}
   AnimatorManager: {fileID: 0}

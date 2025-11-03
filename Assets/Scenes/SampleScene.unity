@@ -1303,7 +1303,7 @@ MonoBehaviour:
   ActorController: {fileID: 577008168}
   ForwardMaxDetectDistance: 2
   FloorMaxDetectDistance: 2
-  ExitSpeed: 5
+  ExitHeight: 10
 --- !u!1 &593913145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2858,6 +2858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Locomotion: {fileID: 1397843825}
+  SurfaceJump: {fileID: 0}
   Inventory: {fileID: 1333267891}
   InteractWithShadow: {fileID: 577008169}
   AnimatorManager: {fileID: 0}
@@ -3152,6 +3153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Locomotion: {fileID: 1862026988}
+  SurfaceJump: {fileID: 0}
   Inventory: {fileID: 1502037790}
   InteractWithShadow: {fileID: 577008169}
   AnimatorManager: {fileID: 0}
