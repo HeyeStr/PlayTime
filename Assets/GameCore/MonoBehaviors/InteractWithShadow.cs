@@ -68,7 +68,7 @@ namespace GameCore.MonoBehaviors
         private void _ExitShadow()
         {
             PlayerManager.SwitchToNormal();
-            NormalBrain.CommandStream.Enqueue(new JumpCommand(ExitSpeed));
+            NormalBrain.CommandStream.Enqueue(new JumpCommand(ExitHeight, ActorController.transform.up));
             ActorController.height       = PlayerManager.NormalModelHeight;
             ActorController.transform.up = Vector3.up;
         }
@@ -78,10 +78,6 @@ namespace GameCore.MonoBehaviors
             if (_CanEntryShadow())
             {
                 _EntryShadow();
-            }
-            else
-            {
-                SuperDebug.Log("Can Not EntryShadow");
             }
         }
 
@@ -196,7 +192,7 @@ namespace GameCore.MonoBehaviors
         public  CharacterController ActorController;
         public  float               ForwardMaxDetectDistance = 2f;
         public  float               FloorMaxDetectDistance   = 2f;
-        public  int                 ExitSpeed                = 10;
+        public  float               ExitHeight               = 10;
         private RaycastHit          _HitPos;
         private LayerMask           _IgnoreLayerMask;
         private Brain               NormalBrain => PlayerManager.NormalBrain;

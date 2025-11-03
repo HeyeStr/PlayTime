@@ -32,7 +32,7 @@ namespace GameCore.MonoBehaviors
 
         private void _HandleMove()
         {
-            ActorBrain.ActorController.Move(Velocity * (MoveSpeed * DeltaTime));
+            ActorBrain.ActorController.Move(Velocity * (MoveSpeed * G.DeltaTime));
             ActorBrain.AnimatorManager?.UpdateAnimatorMovementParameters(0, _MoveAmount);
         }
 
@@ -50,7 +50,7 @@ namespace GameCore.MonoBehaviors
             var newRotation = Quaternion.LookRotation(rotationDirection, PlayerTransform.up);
 
             PlayerTransform.rotation =
-                Quaternion.Slerp(PlayerTransform.rotation, newRotation, RotationSpeed * DeltaTime);
+                Quaternion.Slerp(PlayerTransform.rotation, newRotation, RotationSpeed * G.DeltaTime);
         }
 
         private void _MockGravity()
@@ -78,9 +78,6 @@ namespace GameCore.MonoBehaviors
         // private readonly float _GroundCheckOffset = 0.5f;
 
         private Transform PlayerTransform => ActorBrain.ActorController.transform;
-
-        private static float DeltaTime =>
-            G.UseUnscaledDeltaTime ? Time.unscaledDeltaTime : Time.deltaTime;
 
         private bool IsGrounded => ActorBrain.ActorController.isGrounded;
 

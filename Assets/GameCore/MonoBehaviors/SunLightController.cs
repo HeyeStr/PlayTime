@@ -20,9 +20,9 @@ namespace GameCore.MonoBehaviors
             G.GameEventManager.AddEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            _RotationAmount = RotationSpeed * DeltaTime;
+            _RotationAmount = RotationSpeed * G.DeltaTime;
             if (G.GPlayerController.IsTimeForwardPerformed)
             {
                 _TimeForward();
@@ -83,9 +83,6 @@ namespace GameCore.MonoBehaviors
         private Transform _Transform;
         private Vector3   _CurrentAngle;
         private float     _RotationAmount;
-
-        private static float DeltaTime =>
-            G.UseUnscaledDeltaTime ? Time.unscaledDeltaTime : Time.deltaTime;
 
         #endregion Fields
     }
