@@ -2,6 +2,7 @@
   2025年10月23日
 */
 
+using System.Collections;
 using System.Collections.Generic;
 using GameCore.Commands;
 using GameCore.MonoBehaviors;
@@ -23,20 +24,23 @@ namespace GameCore.Actor
 
         #endregion UnityBehaviour
 
+        #region PublicMethods
+
+        public void ExecuteCommand(CommandBase command)
+        {
+            command.Execute(this);
+        }
+
+        #endregion PublicMethods
+
         #region PrivateMethods
 
         private void _ExecuteCommands()
         {
             while (CommandStream.Count > 0)
             {
-                ExecuteCommand();
+                ExecuteCommand(CommandStream.Dequeue());
             }
-        }
-
-        public void ExecuteCommand()
-        {
-            var command = CommandStream.Dequeue();
-            command.Execute(this);
         }
 
         #endregion PrivateMethods
@@ -44,6 +48,7 @@ namespace GameCore.Actor
         #region Capabilities
 
         public Locomotion         Locomotion;
+        public SurfaceJump        SurfaceJump;
         public Inventory          Inventory;
         public InteractWithShadow InteractWithShadow;
         public AnimatorManager    AnimatorManager;

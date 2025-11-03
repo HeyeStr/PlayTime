@@ -9,20 +9,22 @@ namespace GameCore.Commands
 {
     public class JumpCommand : CommandBase
     {
-        public JumpCommand(int jumpSpeed)
+        public JumpCommand(float jumpHeight, Vector3 jumpDirection)
         {
-            _JumpSpeed = jumpSpeed;
+            _JumpHeight    = jumpHeight;
+            _JumpDirection = jumpDirection;
         }
 
         public override void Execute(Brain executor)
         {
             if (!executor.Locomotion) return;
-            executor.Locomotion.Velocity += _JumpSpeed * executor.ActorController.transform.up;
+            executor.SurfaceJump.Jump(_JumpHeight, _JumpDirection);
         }
 
         #region Fields
 
-        private readonly int _JumpSpeed;
+        private readonly float   _JumpHeight;
+        private readonly Vector3 _JumpDirection;
 
         #endregion Fields
     }
