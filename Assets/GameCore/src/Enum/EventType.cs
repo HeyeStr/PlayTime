@@ -11,6 +11,7 @@ namespace GameCore.Enum
         LevelPass,
         LevelRestart,
 
+        ItemCollect,
         DayNightSwitch,
 
         #region Player

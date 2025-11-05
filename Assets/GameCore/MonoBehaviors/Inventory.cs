@@ -2,7 +2,7 @@
   2025年10月31日
 */
 
-using System;
+using System.Collections.Generic;
 using GameCore.GlobalVars;
 using GameCore.Utilities.Log;
 using UnityEngine;
@@ -18,15 +18,17 @@ namespace GameCore.MonoBehaviors
 
         #region PublicMethods
 
-        public void PickUp(GameObject item)
+        public void PickUp(Collectable item)
         {
-            // TODO: 拾取物品的逻辑
-            SuperDebug.Log("Picked up " + item.name);
+            CollectedItems.Add(item);
+            G.GameEventManager.TriggerEvent(EventType.ItemCollect);
         }
 
         #endregion PublicMethods
 
         #region Fields
+
+        public List<Collectable> CollectedItems = new List<Collectable>();
 
         #endregion Fields
     }

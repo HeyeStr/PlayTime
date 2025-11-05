@@ -4,6 +4,7 @@
 
 using GameCore.Commands;
 using GameCore.GlobalVars;
+using GameCore.MonoBehaviors;
 using UnityEngine;
 using EventType = GameCore.Enum.EventType;
 
@@ -121,6 +122,7 @@ namespace GameCore.Actor
         public static PlayerManager Instance;
         public        Brain         NormalBrain;
         public        Brain         ShadowBrain;
+        public        Inventory     PlayerInventory;
 
         private GameObject      _NormalModel;
         private GameObject      _ShadowModel;

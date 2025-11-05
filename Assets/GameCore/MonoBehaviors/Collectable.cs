@@ -2,7 +2,6 @@
   2025年10月31日
 */
 
-using System;
 using GameCore.Actor;
 using GameCore.GlobalVars;
 using UnityEngine;
@@ -17,15 +16,16 @@ namespace GameCore.MonoBehaviors
         private void Start()
         {
             _GameObject = gameObject;
+            GlobalAdmin.GLevelManager.NeededItems.Add(this);
             G.GameEventManager.AddEventListener(EventType.LevelRestart, _OnLevelRestart);
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            var actorBrain = other.transform.root.GetComponentInChildren<Brain>();
-            if (actorBrain == null || !actorBrain.Inventory) return;
+            var playerInventory = other.transform.root.GetComponent<Inventory>();
+            if (playerInventory == null) return;
 
-            actorBrain.Inventory.PickUp(_GameObject);
+            playerInventory.PickUp(this);
             _GameObject.SetActive(false);
         }
 

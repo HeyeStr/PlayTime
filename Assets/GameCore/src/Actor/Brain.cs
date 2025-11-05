@@ -49,7 +49,6 @@ namespace GameCore.Actor
 
         public Locomotion         Locomotion;
         public SurfaceJump        SurfaceJump;
-        public Inventory          Inventory;
         public InteractWithShadow InteractWithShadow;
         public AnimatorManager    AnimatorManager;
         public PlayerManager      PlayerManager;
