@@ -41,6 +41,7 @@ namespace GameCore.GlobalVars
             _InputController.GamePlay.Interact.performed       += _OnInteractPerformed;
             _InputController.GamePlay.DayNightSwitch.performed += _OnDayNightSwitch;
             _InputController.UI.Cancel.performed               += _OnCancelPerformed;
+            _InputController.UI.Pause.performed                += _OnPausePerformed;
             IsEnable                                           =  true;
         }
 
@@ -56,6 +57,7 @@ namespace GameCore.GlobalVars
             _InputController.GamePlay.Interact.performed       -= _OnInteractPerformed;
             _InputController.GamePlay.DayNightSwitch.performed -= _OnDayNightSwitch;
             _InputController.UI.Cancel.performed               -= _OnCancelPerformed;
+            _InputController.UI.Pause.performed                -= _OnPausePerformed;
             _InputController.Disable();
             IsEnable = false;
         }
@@ -151,9 +153,11 @@ namespace GameCore.GlobalVars
 
         #region HanldeUI
 
-        public void OnPausePerformed(InputAction.CallbackContext context)
+        private void _OnPausePerformed(InputAction.CallbackContext context)
         {
-            // TODO: 暂停逻辑
+            var pausePage = UIManager.GetUIController("PausePage", G.GUIManager.Dialog);
+            pausePage.gameObject.SetActive(true);
+            Time.timeScale = 0;
             _CheckInputDeviceChange(context);
         }
 
