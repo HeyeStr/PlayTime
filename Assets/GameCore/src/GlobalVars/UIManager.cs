@@ -17,14 +17,12 @@ namespace GameCore.GlobalVars
 
         private void Awake()
         {
-            if (Instance == null)
+            if (Instance != null)
             {
-                Instance = this;
+                Destroy(Instance.gameObject);
             }
-            else
-            {
-                Destroy(gameObject);
-            }
+
+            Instance = this;
         }
 
         private void OnEnable()
@@ -66,7 +64,7 @@ namespace GameCore.GlobalVars
 
         public void ClearAboveDialog() => _ClearChild(AboveDialog);
 
-        public UIControllerBase GetUIController(string pageName, List<UIControllerBase> children)
+        public static UIControllerBase GetUIController(string pageName, List<UIControllerBase> children)
         {
             foreach (var child in children)
             {

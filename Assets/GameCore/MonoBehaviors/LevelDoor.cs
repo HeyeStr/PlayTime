@@ -56,12 +56,11 @@ namespace GameCore.MonoBehaviors
         private static void _BackToGameStart()
         {
             var uiManager = G.GUIManager;
-            var page      = uiManager.GetUIController("GameStartPage", uiManager.Page);
-            if (page is GameStartPage)
-            {
-                GameStartPage.IsFirstTime = true;
-                uiManager.LoadPage("GameStartPage");
-            }
+            var page      = UIManager.GetUIController("GameStartPage", uiManager.Page);
+            if (page is not GameStartPage) return;
+
+            GameStartPage.IsFirstTime = true;
+            uiManager.LoadPage("GameStartPage");
         }
 
         #endregion PrivateMethods
