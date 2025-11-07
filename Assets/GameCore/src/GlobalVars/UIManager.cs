@@ -1,4 +1,4 @@
-﻿/* UI管理 By ShuaiGuo 
+﻿/* UI管理 By ShuaiGuo
   2025年10月23日
 */
 
@@ -25,31 +25,6 @@ namespace GameCore.GlobalVars
             {
                 Destroy(gameObject);
             }
-
-            if (BelowPage == null)
-            {
-                BelowPage = transform.Find("BelowPage").gameObject;
-            }
-
-            if (Page == null)
-            {
-                Page = transform.Find("BelowPage").gameObject;
-            }
-
-            if (AbovePage == null)
-            {
-                AbovePage = transform.Find("AbovePage").gameObject;
-            }
-
-            if (Dialog == null)
-            {
-                Dialog = transform.Find("Dialog").gameObject;
-            }
-
-            if (AboveDialog == null)
-            {
-                AboveDialog = transform.Find("AboveDialog").gameObject;
-            }
         }
 
         private void OnEnable()
@@ -62,20 +37,15 @@ namespace GameCore.GlobalVars
             G.GameEventManager.RemoveEventListener(EventType.GameOver, _OnGameOver);
         }
 
-        private void Start()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
         #endregion UnityBehavior
-        
+
         #region PublicMethod
 
-        public void LoadPage(string prefabPath) => _LoadPrefab(prefabPath, Page);
+        public void LoadPage(string pageName) => _Load(pageName, Page);
 
-        public void LoadAbovePage(string prefabPath) => _LoadPrefab(prefabPath, AbovePage);
+        public void LoadAbovePage(string pageName) => _Load(pageName, AbovePage);
 
-        public void LoadDialog(string prefabPath) => _LoadPrefab(prefabPath, Dialog);
+        public void LoadDialog(string pageName) => _Load(pageName, Dialog);
 
         public void ClearAll()
         {
@@ -95,70 +65,59 @@ namespace GameCore.GlobalVars
         public void ClearDialog() => _ClearChild(Dialog);
 
         public void ClearAboveDialog() => _ClearChild(AboveDialog);
-        
+
+        public UIControllerBase GetUIController(string pageName, List<UIControllerBase> children)
+        {
+            foreach (var child in children)
+            {
+                if (child.ControllerName == pageName)
+                {
+                    return child;
+                }
+            }
+
+            return null;
+        }
 
         #endregion PublicMethod
 
         #region PrivateMethod
 
-        private void _ClearChild(GameObject go)
+        private static void _ClearChild(List<UIControllerBase> children)
         {
-            var allChildren = go.GetComponentsInChildren<Transform>(true);
-            foreach (var child in allChildren)
+            foreach (var child in children)
             {
-                if (child != go.transform)
-                {
-                    Destroy(child.gameObject);
-                }
-                var uiController = child.GetComponent<UIControllerBase>();
-                if (_UIControllers.ContainsValue(uiController))
-                {
-                    _UIControllers.Remove(uiController.ControllerName);
-                }
+                child.gameObject.SetActive(false);
             }
         }
 
-        private void _LoadPrefab(string prefabPath, GameObject pageLayer)
+        private static void _Load(string pageName, List<UIControllerBase> children)
         {
-            var go = Resources.Load<GameObject>(prefabPath);
-
-            if (go != null)
+            foreach (var child in children)
             {
-                var instance = Instantiate(go, transform.position, Quaternion.identity);
-                instance.transform.SetParent(pageLayer.transform);
-                var uiController = instance.GetComponentInChildren<UIControllerBase>();
-                if (uiController != null)
+                if (child.ControllerName == pageName)
                 {
-                    _UIControllers.Add(uiController.ControllerName, uiController);
+                    child.gameObject.SetActive(true);
                 }
-            }
-            else
-            {
-                SuperDebug.LogError($"Prefab not found in {prefabPath}");
             }
         }
 
         private void _OnGameOver()
         {
-            _UIControllers["GameOverPage"].gameObject.SetActive(true);
         }
 
         #endregion PrivateMethod
 
-        #region Field
+        #region Fields
 
         public static UIManager Instance;
 
-        public GameObject BelowPage;
-        public GameObject Page;
-        public GameObject AbovePage;
-        public GameObject Dialog;
-        public GameObject AboveDialog;
-        public Dictionary<string, UIControllerBase> UIControllers => _UIControllers;
+        public List<UIControllerBase> BelowPage;
+        public List<UIControllerBase> Page;
+        public List<UIControllerBase> AbovePage;
+        public List<UIControllerBase> Dialog;
+        public List<UIControllerBase> AboveDialog;
 
-        private readonly Dictionary<string, UIControllerBase> _UIControllers =
-            new Dictionary<string, UIControllerBase>();
-
-        #endregion Field
+        #endregion Fields
     }
 }

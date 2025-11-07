@@ -29,6 +29,7 @@ namespace GameCore.GlobalVars
 
         private void OnEnable()
         {
+            ReturnToOriginalDoor.SetActive(false);
             G.GameEventManager.AddEventListener(EventType.ItemCollect, _OnItemCollected);
         }
 
@@ -44,19 +45,21 @@ namespace GameCore.GlobalVars
 
         private void _OnItemCollected()
         {
-            if (CollectedNumber == NeededNumber)
-            {
-                G.GameEventManager.TriggerEvent(EventType.LevelPass);
-            }
+            if (CollectedNumber != NeededNumber) return;
+
+            G.GameEventManager.TriggerEvent(EventType.LevelPass);
+            ReturnToOriginalDoor.SetActive(true);
         }
 
         #endregion PrivateMethods
 
         #region Fields
 
-        public static int               CollectedNumber => GlobalAdmin.Player.PlayerInventory.CollectedItems.Count;
-        public        int               NeededNumber    => NeededItems.Count;
-        public        List<Collectable> NeededItems = new List<Collectable>();
+        public static int CollectedNumber => GlobalAdmin.Player.PlayerInventory.CollectedItems.Count;
+        public        int NeededNumber    => NeededItems.Count;
+
+        public GameObject        ReturnToOriginalDoor;
+        public List<Collectable> NeededItems = new List<Collectable>();
 
         #endregion Fields
     }

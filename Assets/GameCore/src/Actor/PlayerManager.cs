@@ -35,7 +35,14 @@ namespace GameCore.Actor
 
         private void Update()
         {
-            _HandleMove();
+            if (G.GPlayerController.IsEnable)
+            {
+                _HandleMove();
+            }
+            else
+            {
+                CurrentBrain.Locomotion.Velocity = Vector3.zero;
+            }
         }
 
         private void OnEnable()
@@ -72,11 +79,6 @@ namespace GameCore.Actor
         {
             _GetMoveDirection();
             if (!CurrentBrain.Locomotion) return;
-
-            // // 保留法线分量
-            // var normalVelocity = Vector3.Dot(CurrentBrain.Locomotion.Velocity, transform.up) * transform.up;
-            // CurrentBrain.Locomotion.Velocity =  _MoveDirection;
-            // CurrentBrain.Locomotion.Velocity += normalVelocity;
 
             if (IsInShadow)
             {

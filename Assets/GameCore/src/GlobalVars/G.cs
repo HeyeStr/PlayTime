@@ -12,6 +12,8 @@ namespace GameCore.GlobalVars
         public static PlayerController GPlayerController => PlayerController.Instance;
         public static MainCamera       Camera => MainCamera.Instance;
         public static UIManager        GUIManager => UIManager.Instance;
+        public static LevelSelect      GLevelSelect => LevelSelect.Instance;
+        public static SaveManager      GSaveManager => SaveManager.Instance;
         public static GlobalAdmin      Admin => GlobalAdmin.Instance;
         public static float            DeltaTime => UseUnscaledDeltaTime ? Time.unscaledDeltaTime : Time.deltaTime;
 

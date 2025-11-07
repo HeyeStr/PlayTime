@@ -3,6 +3,7 @@
 */
 
 using GameCore.GlobalVars;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace GameCore.UI.UIControllers
@@ -13,10 +14,19 @@ namespace GameCore.UI.UIControllers
 
         private void OnEnable()
         {
-            G.GPlayerController.OnDisable();
-            StartGame.onClick.AddListener(_OnStartGame);
-            ContinueGame.onClick.AddListener(_OnContinueGame);
-            QuitGame.onClick.AddListener(_OnQuitGame);
+            if (IsFirstTime)
+            {
+                G.GPlayerController.OnDisable();
+                UICamera.SetActive(true);
+                StartGame.onClick.AddListener(_OnStartGame);
+                ContinueGame.onClick.AddListener(_OnContinueGame);
+                QuitGame.onClick.AddListener(_OnQuitGame);
+                IsFirstTime = false;
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         private void OnDisable()
@@ -24,6 +34,7 @@ namespace GameCore.UI.UIControllers
             StartGame.onClick.RemoveListener(_OnStartGame);
             ContinueGame.onClick.RemoveListener(_OnContinueGame);
             QuitGame.onClick.RemoveListener(_OnQuitGame);
+            UICamera?.SetActive(false);
             G.GPlayerController.OnEnable();
         }
 
@@ -34,14 +45,18 @@ namespace GameCore.UI.UIControllers
         private void _OnStartGame()
         {
             gameObject.SetActive(false);
+            UICamera.SetActive(false);
+            G.GSaveManager.DeleteSave();
         }
 
         private void _OnContinueGame()
         {
-            // TODO: 存档逻辑
+            gameObject.SetActive(false);
+            UICamera.SetActive(false);
+            G.GSaveManager.LoadGame();
         }
 
-        private void _OnQuitGame()
+        private static void _OnQuitGame()
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
@@ -54,9 +69,12 @@ namespace GameCore.UI.UIControllers
 
         #region Fields
 
-        public Button StartGame;
-        public Button ContinueGame;
-        public Button QuitGame;
+        public static bool IsFirstTime = true;
+
+        public GameObject UICamera;
+        public Button     StartGame;
+        public Button     ContinueGame;
+        public Button     QuitGame;
 
         #endregion Fields
     }

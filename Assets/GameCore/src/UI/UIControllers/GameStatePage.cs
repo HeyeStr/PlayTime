@@ -11,7 +11,7 @@ using EventType = GameCore.Enum.EventType;
 
 namespace GameCore.UI.UIControllers
 {
-    public class GameState : UIControllerBase
+    public class GameStatePage : UIControllerBase
     {
         #region UnityBehaviour
 
@@ -21,6 +21,9 @@ namespace GameCore.UI.UIControllers
             _RectTransform          = SunImage.rectTransform;
             _CurrentAngle.z         = SunPivot.transform.eulerAngles.x - 90;
             _RectTransform.rotation = Quaternion.Euler(_CurrentAngle);
+
+            TaskPanel.SetActive(true);
+            ReturnSentence.enabled = false;
         }
 
         private void FixedUpdate()
@@ -34,11 +37,13 @@ namespace GameCore.UI.UIControllers
         private void OnEnable()
         {
             G.GameEventManager.AddEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
+            G.GameEventManager.AddEventListener(EventType.LevelPass,      _OnLevelPass);
         }
 
         private void OnDisable()
         {
             G.GameEventManager.RemoveEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
+            G.GameEventManager.RemoveEventListener(EventType.LevelPass,      _OnLevelPass);
         }
 
         #endregion UnityBehaviour
@@ -92,6 +97,12 @@ namespace GameCore.UI.UIControllers
             SunImage.enabled = !SunImage.enabled;
         }
 
+        private void _OnLevelPass()
+        {
+            TaskPanel.SetActive(false);
+            ReturnSentence.enabled = true;
+        }
+
         #endregion PrivateMethods
 
         #region Fields
@@ -99,9 +110,10 @@ namespace GameCore.UI.UIControllers
         public Transform SunPivot;
         public Image     SunImage;
 
-
+        public GameObject      TaskPanel;
         public TextMeshProUGUI CollectedNumber;
         public TextMeshProUGUI NeededNumber;
+        public TextMeshProUGUI ReturnSentence;
 
         private RectTransform      _RectTransform;
         private SunLightController _SunLightController;

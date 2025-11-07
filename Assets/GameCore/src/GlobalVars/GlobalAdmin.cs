@@ -5,7 +5,6 @@
 using System.Collections.Generic;
 using GameCore.Actor;
 using GameCore.MonoBehaviors;
-using GameCore.Systems;
 using UnityEngine;
 using EventType = GameCore.Enum.EventType;
 
@@ -37,12 +36,14 @@ namespace GameCore.GlobalVars
         {
             G.GPlayerController.OnEnable();
             G.GameEventManager.AddEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
+            G.GameEventManager.AddEventListener(EventType.LevelPass,      _OnLevelPass);
         }
 
         private void OnDisable()
         {
             G.GPlayerController.OnDisable();
             G.GameEventManager.RemoveEventListener(EventType.DayNightSwitch, _OnDayNightSwitch);
+            G.GameEventManager.RemoveEventListener(EventType.LevelPass,      _OnLevelPass);
         }
 
         #endregion UnityBehaviour
@@ -52,6 +53,10 @@ namespace GameCore.GlobalVars
         private void _OnDayNightSwitch()
         {
             RenderSettings.skybox = RenderSettings.skybox == DaySkybox ? NightSkybox : DaySkybox;
+        }
+
+        private void _OnLevelPass()
+        {
         }
 
         #endregion PrivateMethods

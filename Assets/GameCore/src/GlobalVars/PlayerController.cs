@@ -41,6 +41,7 @@ namespace GameCore.GlobalVars
             _InputController.GamePlay.Interact.performed       += _OnInteractPerformed;
             _InputController.GamePlay.DayNightSwitch.performed += _OnDayNightSwitch;
             _InputController.UI.Cancel.performed               += _OnCancelPerformed;
+            IsEnable                                           =  true;
         }
 
         public void OnDisable()
@@ -56,6 +57,7 @@ namespace GameCore.GlobalVars
             _InputController.GamePlay.DayNightSwitch.performed -= _OnDayNightSwitch;
             _InputController.UI.Cancel.performed               -= _OnCancelPerformed;
             _InputController.Disable();
+            IsEnable = false;
         }
 
         #endregion UnityBehavior
@@ -151,17 +153,13 @@ namespace GameCore.GlobalVars
 
         public void OnPausePerformed(InputAction.CallbackContext context)
         {
-            if (!G.GUIManager.UIControllers.ContainsKey("PausePage")) return;
-            var pausePage = G.GUIManager.UIControllers["PausePage"].gameObject;
-            pausePage.SetActive(!pausePage.activeSelf);
+            // TODO: 暂停逻辑
             _CheckInputDeviceChange(context);
         }
 
         private void _OnCancelPerformed(InputAction.CallbackContext context)
         {
-            if (!G.GUIManager.UIControllers.ContainsKey("PausePage")) return;
-            var pausePage = G.GUIManager.UIControllers["PausePage"].gameObject;
-            pausePage.SetActive(false);
+            // TODO: 暂停逻辑
             _CheckInputDeviceChange(context);
         }
 
@@ -190,9 +188,11 @@ namespace GameCore.GlobalVars
         #region Fields
 
         private readonly InputControl _InputController;
-        public           float        MoveAmount;
-        public           bool         IsTimeForwardPerformed  = false;
-        public           bool         IsTimeBackwardPerformed = false;
+
+        public float MoveAmount;
+        public bool  IsEnable                = false;
+        public bool  IsTimeForwardPerformed  = false;
+        public bool  IsTimeBackwardPerformed = false;
 
         private Vector2 _MovementInput;
         private Vector2 _CameraInput;
