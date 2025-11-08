@@ -59,7 +59,9 @@ namespace GameCore.GlobalVars
             _InputController.UI.Cancel.performed               -= _OnCancelPerformed;
             _InputController.UI.Pause.performed                -= _OnPausePerformed;
             _InputController.Disable();
-            IsEnable = false;
+            _MovementInput = Vector2.zero;
+            MoveAmount     = 0;
+            IsEnable       = false;
         }
 
         #endregion UnityBehavior

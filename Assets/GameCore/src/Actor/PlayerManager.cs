@@ -39,10 +39,6 @@ namespace GameCore.Actor
             {
                 _HandleMove();
             }
-            else
-            {
-                CurrentBrain.Locomotion.Velocity = Vector3.zero;
-            }
         }
 
         private void OnEnable()

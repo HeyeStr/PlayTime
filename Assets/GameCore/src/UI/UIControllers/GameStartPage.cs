@@ -19,7 +19,6 @@ namespace GameCore.UI.UIControllers
                 G.GPlayerController.OnDisable();
                 UICamera.SetActive(true);
                 StartGame.onClick.AddListener(_OnStartGame);
-                ContinueGame.onClick.AddListener(_OnContinueGame);
                 QuitGame.onClick.AddListener(_OnQuitGame);
                 IsFirstTime = false;
             }
@@ -32,9 +31,8 @@ namespace GameCore.UI.UIControllers
         private void OnDisable()
         {
             StartGame.onClick.RemoveListener(_OnStartGame);
-            ContinueGame.onClick.RemoveListener(_OnContinueGame);
             QuitGame.onClick.RemoveListener(_OnQuitGame);
-            UICamera?.SetActive(false);
+            UICamera.SetActive(false);
             G.GPlayerController.OnEnable();
         }
 
@@ -45,15 +43,6 @@ namespace GameCore.UI.UIControllers
         private void _OnStartGame()
         {
             gameObject.SetActive(false);
-            UICamera.SetActive(false);
-            G.GSaveManager.DeleteSave();
-        }
-
-        private void _OnContinueGame()
-        {
-            gameObject.SetActive(false);
-            UICamera.SetActive(false);
-            G.GSaveManager.LoadGame();
         }
 
         private static void _OnQuitGame()
@@ -73,7 +62,6 @@ namespace GameCore.UI.UIControllers
 
         public GameObject UICamera;
         public Button     StartGame;
-        public Button     ContinueGame;
         public Button     QuitGame;
 
         #endregion Fields

@@ -2,7 +2,6 @@
   2025年11月5日
 */
 
-using System;
 using GameCore.Actor;
 using GameCore.GlobalVars;
 using GameCore.UI.UIControllers;
@@ -60,7 +59,8 @@ namespace GameCore.MonoBehaviors
             if (page is not GameStartPage) return;
 
             GameStartPage.IsFirstTime = true;
-            uiManager.LoadPage("GameStartPage");
+            SceneManager.LoadScene("LvSelection1");
+            // uiManager.LoadPage("GameStartPage");
         }
 
         #endregion PrivateMethods
