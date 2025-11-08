@@ -920,7 +920,7 @@ PrefabInstance:
     - target: {fileID: 1333412934074436826, guid: 52e412b00d8034345b557363c2a5c23b,
         type: 3}
       propertyPath: LevelSceneName
-      value: Test_Lv2
+      value: Lv2
       objectReference: {fileID: 0}
     - target: {fileID: 1799321589307223355, guid: 52e412b00d8034345b557363c2a5c23b,
         type: 3}
@@ -3712,7 +3712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u8FD8\u6CA1\u60F3\u597D\u7684\u540D\u5B57"
+  m_text: "\u65F6\u5F71\u8FF7\u8E2A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fceeca1247b92714d9c5587c13b05dd4, type: 2}
   m_sharedMaterial: {fileID: -3140199345692562185, guid: fceeca1247b92714d9c5587c13b05dd4,
