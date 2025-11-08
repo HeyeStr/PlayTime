@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f16c1963-95da-42d3-96c6-b9f2240ba171" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/AutoItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/AutoItem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlayTime/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlayTime/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Collectable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Collectable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/NightLight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/NightLight.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/SunLightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/SunLightController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test_Lv1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test_Lv1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +22,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3789ee403a53437cbb6b5d9ab6311f51573620/a3/60d291b6/List`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3789ee403a53437cbb6b5d9ab6311f51573620/de/a2ca3482/Void.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a742b6828205462a8ec3c7ae0f8f032e2da00/f2/8708b77b/EventType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/06/dc4e1f16/Gizmos.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/30/70f2778c/LayerMask.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/30/df0939cb/Debug.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/3e/675cdd3a/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/4b/4f7d1e23/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/5b/1a3ae00b/Vector3.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/a4/ffcab543/Transform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0b044832c86429e90c306261f4bbd83177a00/a5/ad3779b3/Object.cs" root0="FORCE_HIGHLIGHTING" />
@@ -36,15 +39,19 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ca7b32b31189438bab0ba6f61815e95f1fe00/5e/93c19cec/Physics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ca7b32b31189438bab0ba6f61815e95f1fe00/6c/e810d6fa/CharacterController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ca7b32b31189438bab0ba6f61815e95f1fe00/c1/1d3f7215/RaycastHit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/AutoItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Collectable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/DeadArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/InteractWithShadow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/LevelDoor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Locomotion.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/Moveable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/NightLight.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/RebornArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/ShadowLight.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/SunLightController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/SurfaceJump.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Actor/ActorManagerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Actor/AnimatorManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Actor/Brain.cs" root0="FORCE_HIGHLIGHTING" />
@@ -59,9 +66,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/MainCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/SaveManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Systems/CommandSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Systems/SystemBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/UI/UIControllers/GameStartPage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/UI/UIControllers/GameStatePage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/UI/UIControllers/PausePage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/UI/UIControllers/UIControllerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Utilities/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Utilities/Log/ILogSystem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -69,6 +80,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/GameCore/src/Utilities/Log/UnityDebug.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.14.2/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -176,12 +188,24 @@
       <workItem from="1761829246972" duration="2573000" />
       <workItem from="1761903308676" duration="15114000" />
       <workItem from="1761921415019" duration="130000" />
+      <workItem from="1761960078422" duration="21796000" />
+      <workItem from="1762044340950" duration="17989000" />
+      <workItem from="1762089310211" duration="4671000" />
+      <workItem from="1762131036949" duration="12045000" />
+      <workItem from="1762171880237" duration="5971000" />
+      <workItem from="1762319774255" duration="12581000" />
+      <workItem from="1762389366178" duration="1668000" />
+      <workItem from="1762419852119" duration="9600000" />
+      <workItem from="1762475234790" duration="3855000" />
+      <workItem from="1762515147682" duration="2267000" />
+      <workItem from="1762568243898" duration="1736000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
@@ -208,30 +232,43 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/InteractWithShadow.cs</url>
-          <line>68</line>
-          <properties documentPath="F:\Unity\Projects\PlayTime\Assets\GameCore\MonoBehaviors\InteractWithShadow.cs" containingFunctionPresentation="Method '_ExitShadow'">
+          <url>file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/UIManager.cs</url>
+          <line>95</line>
+          <properties documentPath="F:\Unity\Projects\PlayTime\Assets\GameCore\src\GlobalVars\UIManager.cs" containingFunctionPresentation="Method '_Load'">
             <startOffsets>
-              <option value="1541" />
+              <option value="2376" />
             </startOffsets>
             <endOffsets>
-              <option value="1572" />
+              <option value="2413" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/GameCore/MonoBehaviors/SunLightController.cs</url>
-          <line>46</line>
-          <properties documentPath="F:\Unity\Projects\PlayTime\Assets\GameCore\MonoBehaviors\SunLightController.cs" containingFunctionPresentation="Method '_TimeForward'">
+          <url>file://$PROJECT_DIR$/Assets/GameCore/src/GlobalVars/SaveManager.cs</url>
+          <line>48</line>
+          <properties documentPath="F:\Unity\Projects\PlayTime\Assets\GameCore\src\GlobalVars\SaveManager.cs" containingFunctionPresentation="Method 'LoadGame'">
             <startOffsets>
-              <option value="1119" />
+              <option value="1052" />
             </startOffsets>
             <endOffsets>
-              <option value="1149" />
+              <option value="1074" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/GameCore/src/UI/UIControllers/GameStartPage.cs</url>
+          <line>19</line>
+          <properties documentPath="F:\Unity\Projects\PlayTime\Assets\GameCore\src\UI\UIControllers\GameStartPage.cs" containingFunctionPresentation="Method 'OnEnable'">
+            <startOffsets>
+              <option value="384" />
+            </startOffsets>
+            <endOffsets>
+              <option value="409" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
