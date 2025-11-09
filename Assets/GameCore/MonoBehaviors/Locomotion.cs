@@ -33,7 +33,7 @@ namespace GameCore.MonoBehaviors
         private void _HandleMove()
         {
             ActorBrain.ActorController.Move(Velocity * (MoveSpeed * G.DeltaTime));
-            ActorBrain.AnimatorManager.UpdateAnimatorMovementParameters(0, MoveAmount);
+            ActorBrain.AnimatorManager?.UpdateAnimatorMovementParameters(0, MoveAmount);
         }
 
         private void _HandleRotation()

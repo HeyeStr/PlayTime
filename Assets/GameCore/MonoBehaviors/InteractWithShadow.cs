@@ -6,6 +6,7 @@ using GameCore.Actor;
 using GameCore.Commands;
 using GameCore.GlobalVars;
 using UnityEngine;
+using EventType = GameCore.Enum.EventType;
 
 namespace GameCore.MonoBehaviors
 {
@@ -68,6 +69,7 @@ namespace GameCore.MonoBehaviors
             NormalBrain.CommandStream.Enqueue(new JumpCommand(ExitHeight, ActorController.transform.up));
             ActorController.height       = PlayerManager.NormalModelHeight * 2;
             ActorController.transform.up = Vector3.up;
+            G.GameEventManager.TriggerEvent(EventType.ExitShadow);
         }
 
         private void _TryToEntryShadow()
@@ -84,6 +86,7 @@ namespace GameCore.MonoBehaviors
             ActorController.height = PlayerManager.ShadowModelHeight;
             var preForward = Vector3.Cross(_HitPos.normal, ActorController.transform.right);
             ActorController.transform.rotation = Quaternion.LookRotation(preForward, _HitPos.normal);
+            G.GameEventManager.TriggerEvent(EventType.EntryShadow);
         }
 
         private bool _CanEntryShadow()
