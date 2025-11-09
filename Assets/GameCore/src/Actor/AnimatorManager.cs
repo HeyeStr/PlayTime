@@ -10,14 +10,6 @@ namespace GameCore.Actor
     {
         #region UnityBehavior
 
-        private void Awake()
-        {
-            if (ActorBrain == null)
-            {
-                ActorBrain = GetComponent<Brain>();
-            }
-        }
-
         private void OnAnimatorMove()
         {
             if (!ApplyRootMotion) return;
@@ -30,17 +22,17 @@ namespace GameCore.Actor
 
         public void UpdateAnimatorMovementParameters(float horizontalMovement, float verticalMovement)
         {
-            ActorBrain.ActorAnimator.SetFloat(Horizontal, horizontalMovement, 0.1f, Time.deltaTime);
-            ActorBrain.ActorAnimator.SetFloat(Vertical,   verticalMovement,   0.1f, Time.deltaTime);
+            // ActorBrain.ActorAnimator.SetFloat(Horizontal, horizontalMovement, 0.1f, Time.deltaTime);
+            ActorBrain.ActorAnimator.SetFloat(Vertical, verticalMovement, 0.1f, Time.deltaTime);
         }
 
         #region Field
 
         public Brain ActorBrain;
-        public bool  ApplyRootMotion = true;
+        public bool  ApplyRootMotion = false;
 
-        private static readonly int Horizontal = Animator.StringToHash("Horizontal");
-        private static readonly int Vertical   = Animator.StringToHash("Vertical");
+        // private static readonly int Horizontal = Animator.StringToHash("Horizontal");
+        private static readonly int Vertical = Animator.StringToHash("Vertical");
 
         #endregion Field
     }

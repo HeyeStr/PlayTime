@@ -33,7 +33,7 @@ namespace GameCore.MonoBehaviors
         private void _HandleMove()
         {
             ActorBrain.ActorController.Move(Velocity * (MoveSpeed * G.DeltaTime));
-            ActorBrain.AnimatorManager?.UpdateAnimatorMovementParameters(0, _MoveAmount);
+            ActorBrain.AnimatorManager.UpdateAnimatorMovementParameters(0, MoveAmount);
         }
 
         private void _HandleRotation()
@@ -69,22 +69,16 @@ namespace GameCore.MonoBehaviors
 
         public Brain   ActorBrain;
         public Vector3 Velocity;
+        public float   MoveAmount;
         public float   MoveSpeed         = 4;
         public float   RotationSpeed     = 15;
         public float   GravityForce      = -10;
         public bool    ShouldMockGravity = true;
 
-        private float _MoveAmount;
-        // private readonly float _GroundCheckOffset = 0.5f;
 
         private Transform PlayerTransform => ActorBrain.ActorController.transform;
 
         private bool IsGrounded => ActorBrain.ActorController.isGrounded;
-
-        // private bool IsGrounded => Physics.SphereCast(
-        //     PlayerTransform.position + _GroundCheckOffset * PlayerTransform.up, ActorBrain.ActorController.radius,
-        //     -PlayerTransform.up, out var hit,
-        //     _GroundCheckOffset - ActorBrain.ActorController.radius + 2 * ActorBrain.ActorController.skinWidth);
 
         #endregion Fields
     }

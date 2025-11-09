@@ -84,6 +84,7 @@ namespace GameCore.Actor
             {
                 CurrentBrain.Locomotion.Velocity.x = _MoveDirection.x;
                 CurrentBrain.Locomotion.Velocity.z = _MoveDirection.z;
+                CurrentBrain.Locomotion.MoveAmount = G.GPlayerController.MoveAmount;
             }
         }
 
