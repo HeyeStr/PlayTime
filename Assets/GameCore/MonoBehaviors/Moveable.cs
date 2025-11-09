@@ -24,11 +24,35 @@ namespace GameCore.MonoBehaviors
             {
                 transform.position = _StartPosition;
             }
+        }
 
-            ItemRigidbody.isKinematic = GlobalAdmin.Player.IsInShadow;
+        private void OnEnable()
+        {
+            G.GameEventManager.AddEventListener(EventType.EntryShadow, _OnEntryShadow);
+            G.GameEventManager.AddEventListener(EventType.ExitShadow,  _OnExitShadow);
+        }
+
+        private void OnDisable()
+        {
+            G.GameEventManager.RemoveEventListener(EventType.EntryShadow, _OnEntryShadow);
+            G.GameEventManager.RemoveEventListener(EventType.ExitShadow,  _OnExitShadow);
         }
 
         #endregion UnityBehaviour
+
+        #region PrivateMethods
+
+        private void _OnEntryShadow()
+        {
+            ItemRigidbody.isKinematic = GlobalAdmin.Player.IsInShadow;
+        }
+
+        private void _OnExitShadow()
+        {
+            ItemRigidbody.isKinematic = GlobalAdmin.Player.IsInShadow;
+        }
+
+        #endregion PrivateMethods
 
         #region Fields
 
