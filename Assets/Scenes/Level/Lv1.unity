@@ -216,6 +216,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5588355878309990421, guid: 269c0cc37c51ff44bb31ac67a5f0b8f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236685452490682816, guid: 269c0cc37c51ff44bb31ac67a5f0b8f6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 55a46e6d225b8cd4bbe1b28884640ec2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7766719576954973499, guid: 269c0cc37c51ff44bb31ac67a5f0b8f6, type: 3}
@@ -2562,7 +2572,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u8FD4\u56DE\u4F20\u9001\u95E8"
+  m_text: "\u5BFB\u627E\u4F20\u9001\u95E8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fceeca1247b92714d9c5587c13b05dd4, type: 2}
   m_sharedMaterial: {fileID: -3140199345692562185, guid: fceeca1247b92714d9c5587c13b05dd4,
